@@ -70,6 +70,7 @@ window.addEventListener('load', () => {
 
         document.getElementById('painel_login').remove();
         carregarPainel(data.script, data.token);
+        checarAtualizacao();
       };
     }
 
@@ -97,6 +98,7 @@ window.addEventListener('load', () => {
 
         localStorage.setItem('grepolis_token', data.token);
         carregarPainel(data.script, data.token);
+        checarAtualizacao();
       } catch (e) {
         console.error(e);
         alert('Erro ao autenticar automaticamente');
@@ -150,6 +152,29 @@ window.addEventListener('load', () => {
         alert("Erro ao desencriptar ou validar hash do script.");
       }
     }
+
+    async function checarAtualizacao() {
+      const VERSAO_ATUAL = "1.1";
+      try {
+        const raw = await fetch("https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/Update/Painel-GPT-Bot-BR.js");
+        const texto = await raw.text();
+        const regex = /@version\s+([^\n]+)/;
+        const match = texto.match(regex);
+        if (!match) return;
+
+        const versaoRemota = match[1].trim();
+        if (versaoRemota !== VERSAO_ATUAL) {
+          if (confirm(`🆕 Nova versão disponível: ${versaoRemota}\nDeseja atualizar agora?`)) {
+            window.open("https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/Update/Painel-GPT-Bot-BR.js", "_blank");
+          }
+        } else {
+          console.log("✅ Script está atualizado.");
+        }
+      } catch (e) {
+        console.warn("⚠️ Erro ao verificar atualização:", e);
+      }
+    }
+
 
   })();
 });
