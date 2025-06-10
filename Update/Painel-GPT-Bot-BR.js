@@ -7,6 +7,8 @@
 // @match        https://*.grepolis.com/game/*
 // @match        http://*.grepolis.com/game/*
 // @grant        GM_xmlhttpRequest
+// @updateURL   https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/Update/Painel-GPT-Bot-BR.js
+// @downloadURL https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/Update/Painel-GPT-Bot-BR.js
 // @require      https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js
 // ==/UserScript==
 
