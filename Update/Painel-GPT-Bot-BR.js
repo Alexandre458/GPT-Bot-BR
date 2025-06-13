@@ -9,6 +9,7 @@
 // @grant        GM_xmlhttpRequest
 // @updateURL   https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/Update/Painel-GPT-Bot-BR.js
 // @downloadURL https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/Update/Painel-GPT-Bot-BR.js
+// @connect      script.gptbotbr.com
 // @require      https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js
 // ==/UserScript==
 
@@ -112,7 +113,7 @@ window.addEventListener('load', () => {
 
     async function carregarPainel(script, token) {
       try {
-        const r = await fetch(`${API_URL}/script/${script}`, {
+        const r = await fetch(`${API_URL}/script/${script}?t=${Date.now()}`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'X-Grepolis-Script': '1'
@@ -153,6 +154,8 @@ window.addEventListener('load', () => {
       }
     }
 
+
+
     async function checarAtualizacao() {
       const VERSAO_ATUAL = "1.1";
       try {
@@ -174,6 +177,7 @@ window.addEventListener('load', () => {
         console.warn("⚠️ Erro ao verificar atualização:", e);
       }
     }
+
 
 
   })();
