@@ -1,14 +1,14 @@
 // ==UserScript==
 // @name         GPT-Bot-BR
 // @namespace    https://grepolis.com
-// @version      1.1
+// @version      1.2
 // @description  Bot para automações do Grepolis.
 // @author       Alexandre458
 // @match        https://*.grepolis.com/game/*
 // @match        http://*.grepolis.com/game/*
 // @grant        GM_xmlhttpRequest
-// @updateURL   https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/Update/Painel-GPT-Bot-BR.js
-// @downloadURL https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/Update/Painel-GPT-Bot-BR.js
+// @updateURL    https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/Update/Painel-GPT-Bot-BR.js
+// @downloadURL  https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/Update/Painel-GPT-Bot-BR.js
 // @connect      script.gptbotbr.com
 // @require      https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js
 // ==/UserScript==
@@ -24,6 +24,11 @@ window.addEventListener('load', () => {
       criarTelaLogin();
     } else {
       autenticar(saved);
+    }
+
+    function getNicknameAtual() {
+      const el = document.querySelector("#town_name_area span");
+      return el ? el.textContent.trim() : '';
     }
 
     function criarTelaLogin() {
@@ -48,6 +53,7 @@ window.addEventListener('load', () => {
         if (!usuario || !senha) return alert('Preencha usuário e senha');
 
         const fingerprint = gerarFingerprint();
+        const nickname = getNicknameAtual();
 
         const res = await fetch(`${API_URL}/api/validar`, {
           method: 'POST',
@@ -56,7 +62,7 @@ window.addEventListener('load', () => {
             'X-Grepolis-Script': '1'
           },
           body: JSON.stringify({
-            usuario, senha, fingerprint,
+            usuario, senha, fingerprint, nickname,
             user_agent: navigator.userAgent,
             platform: navigator.platform,
             screen: `${screen.width}x${screen.height}`
@@ -84,7 +90,7 @@ window.addEventListener('load', () => {
             'X-Grepolis-Script': '1'
           },
           body: JSON.stringify({
-            usuario, senha, fingerprint,
+            usuario, senha, fingerprint, nickname: getNicknameAtual(),
             user_agent: navigator.userAgent,
             platform: navigator.platform,
             screen: `${screen.width}x${screen.height}`
@@ -154,10 +160,8 @@ window.addEventListener('load', () => {
       }
     }
 
-
-
     async function checarAtualizacao() {
-      const VERSAO_ATUAL = "1.1";
+      const VERSAO_ATUAL = "1.2";
       try {
         const raw = await fetch("https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/Update/Painel-GPT-Bot-BR.js");
         const texto = await raw.text();
@@ -177,8 +181,5 @@ window.addEventListener('load', () => {
         console.warn("⚠️ Erro ao verificar atualização:", e);
       }
     }
-
-
-
   })();
 });
