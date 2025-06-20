@@ -14,26 +14,33 @@
 // ==/UserScript==
 
 window.addEventListener('load', () => {
-  (async function () {
-    'use strict';
-    const API_URL = 'https://script.gptbotbr.com';
-    const LS_KEY = 'painel_grepolis_auth';
-    const saved = JSON.parse(localStorage.getItem(LS_KEY) || '{}');
+    (async function() {
+        'use strict';
+        const API_URL = 'https://script.gptbotbr.com';
+        const LS_KEY = 'painel_grepolis_auth';
+        const saved = JSON.parse(localStorage.getItem(LS_KEY) || '{}');
 
-    if (!saved.usuario || !saved.senha || !saved.fingerprint) {
-      criarTelaLogin();
-    } else {
-      autenticar(saved);
-    }
+        if (!saved.usuario || !saved.senha || !saved.fingerprint) {
+            criarTelaLogin();
+        } else {
+            autenticar(saved);
+        }
 
-    function getNicknameAtual() {
-      const el = document.querySelector("#town_name_area span");
-      return el ? el.textContent.trim() : '';
-    }
+        function getNicknameAtual() {
+            var uw;
+            if (typeof unsafeWindow == 'undefined') {
+                uw = window;
+            } else {
+                uw = unsafeWindow;
+            }
+            return uw?.Game?.player_name || '';
+        }
 
-    function criarTelaLogin() {
-      const container = document.createElement('div');
-      container.innerHTML = `
+
+
+        function criarTelaLogin() {
+            const container = document.createElement('div');
+            container.innerHTML = `
         <div id="painel_login" style="position:fixed;top:30%;left:50%;transform:translateX(-50%);
         background:#1e1e1e;padding:20px;border-radius:10px;z-index:999999;
         color:white;font-family:Arial,sans-serif;box-shadow:0 0 15px rgba(0,0,0,0.5);min-width:300px;">
@@ -45,141 +52,166 @@ window.addEventListener('load', () => {
           </button>
         </div>
       `;
-      document.body.appendChild(container);
+            document.body.appendChild(container);
 
-      document.getElementById('login_btn').onclick = async () => {
-        const usuario = document.getElementById('login_user').value.trim();
-        const senha = document.getElementById('login_pass').value.trim();
-        if (!usuario || !senha) return alert('Preencha usuário e senha');
+            document.getElementById('login_btn').onclick = async () => {
+                const usuario = document.getElementById('login_user').value.trim();
+                const senha = document.getElementById('login_pass').value.trim();
+                const nickname = getNicknameAtual();
 
-        const fingerprint = gerarFingerprint();
-        const nickname = getNicknameAtual();
+                if (!usuario || !senha || !nickname) {
+                    return alert('Preencha usuario, senha e nickname');
+                }
 
-        const res = await fetch(`${API_URL}/api/validar`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-Grepolis-Script': '1'
-          },
-          body: JSON.stringify({
-            usuario, senha, fingerprint, nickname,
-            user_agent: navigator.userAgent,
-            platform: navigator.platform,
-            screen: `${screen.width}x${screen.height}`
-          })
-        });
+                const fingerprint = gerarFingerprint();
 
-        const data = await res.json();
-        if (!data.status) return alert(data.msg);
+                const res = await fetch(`${API_URL}/api/validar`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Grepolis-Script': '1'
+                    },
+                    body: JSON.stringify({
+                        usuario,
+                        senha,
+                        fingerprint,
+                        nickname,
+                        user_agent: navigator.userAgent,
+                        platform: navigator.platform,
+                        screen: `${screen.width}x${screen.height}`
+                    })
+                });
 
-        localStorage.setItem(LS_KEY, JSON.stringify({ usuario, senha, fingerprint }));
-        localStorage.setItem('grepolis_token', data.token);
+                const data = await res.json();
+                if (!data.status) {
+                    const erro = data.msg || data.erro || JSON.stringify(data);
+                    return alert(erro);
+                }
 
-        document.getElementById('painel_login').remove();
-        carregarPainel(data.script, data.token);
-        checarAtualizacao();
-      };
-    }
 
-    async function autenticar({ usuario, senha, fingerprint }) {
-      try {
-        const res = await fetch(`${API_URL}/api/validar`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-Grepolis-Script': '1'
-          },
-          body: JSON.stringify({
-            usuario, senha, fingerprint, nickname: getNicknameAtual(),
-            user_agent: navigator.userAgent,
-            platform: navigator.platform,
-            screen: `${screen.width}x${screen.height}`
-          })
-        });
+                localStorage.setItem(LS_KEY, JSON.stringify({
+                    usuario,
+                    senha,
+                    fingerprint
+                }));
+                localStorage.setItem('grepolis_token', data.token);
 
-        const data = await res.json();
-        if (!data.status) {
-          localStorage.removeItem(LS_KEY);
-          return criarTelaLogin();
+                document.getElementById('painel_login').remove();
+                carregarPainel(data.script, data.token);
+                checarAtualizacao();
+            };
         }
 
-        localStorage.setItem('grepolis_token', data.token);
-        carregarPainel(data.script, data.token);
-        checarAtualizacao();
-      } catch (e) {
-        console.error(e);
-        alert('Erro ao autenticar automaticamente');
-        criarTelaLogin();
-      }
-    }
+        async function autenticar({
+            usuario,
+            senha,
+            fingerprint
+        }) {
+            try {
+                const res = await fetch(`${API_URL}/api/validar`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-Grepolis-Script': '1'
+                    },
+                    body: JSON.stringify({
+                        usuario,
+                        senha,
+                        fingerprint,
+                        nickname: getNicknameAtual(),
+                        user_agent: navigator.userAgent,
+                        platform: navigator.platform,
+                        screen: `${screen.width}x${screen.height}`
+                    })
+                });
 
-    function gerarFingerprint() {
-      return btoa(`${navigator.userAgent}_${navigator.platform}_${screen.width}x${screen.height}`);
-    }
+                const data = await res.json();
+                if (!data.status) {
+                    localStorage.removeItem(LS_KEY);
+                    return criarTelaLogin();
+                }
 
-    async function carregarPainel(script, token) {
-      try {
-        const r = await fetch(`${API_URL}/script/${script}?t=${Date.now()}`, {
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'X-Grepolis-Script': '1'
-          }
-        });
-
-        const { script: encrypted, hash, iv } = await r.json();
-        secureInjectDecryptAndRun(encrypted, iv, hash, token);
-      } catch (e) {
-        console.error(e);
-        alert('Erro ao carregar script remoto');
-      }
-    }
-
-    function secureInjectDecryptAndRun(encrypted, iv, hash, token) {
-      try {
-        const key = CryptoJS.SHA256(token);
-        const decrypted = CryptoJS.AES.decrypt(encrypted, key, {
-          iv: CryptoJS.enc.Base64.parse(iv),
-          mode: CryptoJS.mode.CBC,
-          padding: CryptoJS.pad.Pkcs7
-        });
-
-        const code = decrypted.toString(CryptoJS.enc.Utf8);
-        const computedHash = CryptoJS.SHA256(code).toString();
-
-        if (computedHash !== hash) {
-          alert("⚠️ Script corrompido");
-          return;
+                localStorage.setItem('grepolis_token', data.token);
+                carregarPainel(data.script, data.token);
+                checarAtualizacao();
+            } catch (e) {
+                console.error(e);
+                alert('Erro ao autenticar automaticamente');
+                criarTelaLogin();
+            }
         }
 
-        const scriptTag = document.createElement('script');
-        scriptTag.textContent = code;
-        document.documentElement.appendChild(scriptTag);
-      } catch (e) {
-        console.error(e);
-        alert("Erro ao desencriptar ou validar hash do script.");
-      }
-    }
-
-    async function checarAtualizacao() {
-      const VERSAO_ATUAL = "1.2";
-      try {
-        const raw = await fetch("https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/Update/Painel-GPT-Bot-BR.js");
-        const texto = await raw.text();
-        const regex = /@version\s+([^\n]+)/;
-        const match = texto.match(regex);
-        if (!match) return;
-
-        const versaoRemota = match[1].trim();
-        if (versaoRemota !== VERSAO_ATUAL) {
-          if (confirm(`🆕 Nova versão disponível: ${versaoRemota}\nDeseja atualizar agora?`)) {
-            window.open("https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/Update/Painel-GPT-Bot-BR.js", "_blank");
-          }
-        } else {
-          console.log("✅ Script está atualizado.");
+        function gerarFingerprint() {
+            return btoa(`${navigator.userAgent}_${navigator.platform}_${screen.width}x${screen.height}`);
         }
-      } catch (e) {
-        console.warn("⚠️ Erro ao verificar atualização:", e);
-      }
-    }
-  })();
+
+        async function carregarPainel(script, token) {
+            try {
+                const r = await fetch(`${API_URL}/script/${script}?t=${Date.now()}`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'X-Grepolis-Script': '1'
+                    }
+                });
+
+                const {
+                    script: encrypted,
+                    hash,
+                    iv
+                } = await r.json();
+                secureInjectDecryptAndRun(encrypted, iv, hash, token);
+            } catch (e) {
+                console.error(e);
+                alert('Erro ao carregar script remoto');
+            }
+        }
+
+        function secureInjectDecryptAndRun(encrypted, iv, hash, token) {
+            try {
+                const key = CryptoJS.SHA256(token);
+                const decrypted = CryptoJS.AES.decrypt(encrypted, key, {
+                    iv: CryptoJS.enc.Base64.parse(iv),
+                    mode: CryptoJS.mode.CBC,
+                    padding: CryptoJS.pad.Pkcs7
+                });
+
+                const code = decrypted.toString(CryptoJS.enc.Utf8);
+                const computedHash = CryptoJS.SHA256(code).toString();
+
+                if (computedHash !== hash) {
+                    alert("⚠️ Script corrompido");
+                    return;
+                }
+
+                const scriptTag = document.createElement('script');
+                scriptTag.textContent = code;
+                document.documentElement.appendChild(scriptTag);
+            } catch (e) {
+                console.error(e);
+                alert("Erro ao desencriptar ou validar hash do script.");
+            }
+        }
+
+        async function checarAtualizacao() {
+            const VERSAO_ATUAL = "1.2";
+            try {
+                const raw = await fetch("https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/Update/Painel-GPT-Bot-BR.js");
+                const texto = await raw.text();
+                const regex = /@version\s+([^\n]+)/;
+                const match = texto.match(regex);
+                if (!match) return;
+
+                const versaoRemota = match[1].trim();
+                if (versaoRemota !== VERSAO_ATUAL) {
+                    if (confirm(`🆕 Nova versão disponível: ${versaoRemota}\nDeseja atualizar agora?`)) {
+                        window.open("https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/Update/Painel-GPT-Bot-BR.js", "_blank");
+                    }
+                } else {
+                    console.log("✅ Script está atualizado.");
+                }
+            } catch (e) {
+                console.warn("⚠️ Erro ao verificar atualização:", e);
+            }
+        }
+    })();
 });
