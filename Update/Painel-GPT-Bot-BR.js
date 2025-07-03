@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GPT-Bot-BR
 // @namespace    https://grepolis.com
-// @version      1.2
+// @version      1.3
 // @description  Bot para automações do Grepolis.
 // @author       Alexandre458
 // @match        https://*.grepolis.com/game/*
@@ -16,6 +16,10 @@
 window.addEventListener('load', () => {
     (async function() {
         'use strict';
+
+        // Verificar versão
+        checarAtualizacao();
+
         const API_URL = 'https://script.gptbotbr.com';
         const LS_KEY = 'painel_grepolis_auth';
         const saved = JSON.parse(localStorage.getItem(LS_KEY) || '{}');
@@ -98,7 +102,7 @@ window.addEventListener('load', () => {
 
                 document.getElementById('painel_login').remove();
                 carregarPainel(data.script, data.token);
-                checarAtualizacao();
+                
             };
         }
 
@@ -127,13 +131,21 @@ window.addEventListener('load', () => {
 
                 const data = await res.json();
                 if (!data.status) {
-                    localStorage.removeItem(LS_KEY);
-                    return criarTelaLogin();
+                    const erro = data.msg || data.erro || 'Erro de autenticação.';
+                    const desejaLimpar = confirm(`${erro}\n\nDeseja limpar os dados de login salvos?`);
+                    if (desejaLimpar) {
+                        localStorage.removeItem(LS_KEY);
+                    }
+
+                    criarTelaLogin();
+                    setTimeout(() => location.reload(), 30000);
+                    return;
                 }
+
 
                 localStorage.setItem('grepolis_token', data.token);
                 carregarPainel(data.script, data.token);
-                checarAtualizacao();
+                
             } catch (e) {
                 console.error(e);
                 alert('Erro ao autenticar automaticamente');
@@ -193,7 +205,7 @@ window.addEventListener('load', () => {
         }
 
         async function checarAtualizacao() {
-            const VERSAO_ATUAL = "1.2";
+            const VERSAO_ATUAL = "1.3";
             try {
                 const raw = await fetch("https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/Update/Painel-GPT-Bot-BR.js");
                 const texto = await raw.text();
@@ -204,7 +216,11 @@ window.addEventListener('load', () => {
                 const versaoRemota = match[1].trim();
                 if (versaoRemota !== VERSAO_ATUAL) {
                     if (confirm(`🆕 Nova versão disponível: ${versaoRemota}\nDeseja atualizar agora?`)) {
-                        window.open("https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/Update/Painel-GPT-Bot-BR.js", "_blank");
+                        const link = document.createElement('a');
+                        link.href = "https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/Update/Painel-GPT-Bot-BR.js";
+                        link.target = "_blank";
+                        link.rel = "noopener noreferrer";
+                        link.click();
                     }
                 } else {
                     console.log("✅ Script está atualizado.");
