@@ -207,7 +207,8 @@ window.addEventListener('load', () => {
         async function checarAtualizacao() {
             const VERSAO_ATUAL = "1.3";
             try {
-                const raw = await fetch("https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/Update/Painel-GPT-Bot-BR.js");
+                const urlRaw = "https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/Update/Painel-GPT-Bot-BR.js?t=" + Date.now();
+                const raw = await fetch(urlRaw);
                 const texto = await raw.text();
                 const regex = /@version\s+([^\n]+)/;
                 const match = texto.match(regex);
