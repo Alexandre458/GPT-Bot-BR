@@ -15,30 +15,31 @@
 			<div class="gpt-tab" data-tab="home">Home</div>
 			<div class="gpt-tab" data-tab="farm">Farm e Aldeias</div>
 			<div class="gpt-tab" data-tab="construcao">Construção</div>
-			<div class="gpt-tab" data-tab="farois">Farois</div>
-			<div class="gpt-tab" data-tab="birremes">Birremes</div>
+			<div class="gpt-tab" data-tab="FaroisBirremes">Farois/Birremes</div>
+			<div class="gpt-tab" data-tab="birremes">Retirado</div>
 			<div class="gpt-tab" data-tab="defesa">Defesa Terra</div>
 			<div class="gpt-tab" data-tab="pesquisas">Pesquisas</div>
 			<div class="gpt-tab" data-tab="cultura">Cultura</div>
 			<div class="gpt-tab" data-tab="notificacao">Notificação</div>
 			<div class="gpt-tab" data-tab="apoio">Enviar Apoio</div>
-			<div class="gpt-tab" data-tab="gold">RETIRADA</div>
+			<div class="gpt-tab" data-tab="gold">Retirado</div>
 			<div class="gpt-tab" data-tab="voador">Auto Farm Voador</div>
 			<div class="gpt-tab" data-tab="spammp">Spam MP / Block Spam</div>
 			<div class="gpt-tab" data-tab="nc">Sistema de NC's</div>
 			<div class="gpt-tab" data-tab="extra">Utilidades</div>
 		</div>
 
-		<div class="content" style="padding: 12px;">
+		<div class="content">
 			<div class="tab-content active" id="home">
 				<div style="margin-top: 8px;">
 					<p style="font-size: 16px; font-weight: bold;">
 						Importe e Exporte funcional, Assim que importar arquivo, recarregar página.
 					</p>
-					<button id="export-localstorage" style="margin-bottom: 5px; width: 45%;">📤 Exportar Configurações</button>
+					<button id="export-localstorage" class="home-btn-config">📤 Exportar Configurações</button>
 					<input type="file" id="import-localstorage-file" accept=".json" style="display:none" />
-					<button id="import-localstorage" style="width: 45%;">📥 Importar Configurações</button>
+					<button id="import-localstorage" class="home-btn-config">📥 Importar Configurações</button>
 				</div>
+
 				<div style="max-height: 300px; overflow-y: auto; padding-right: 5px;">
 					<hr />
 					<div id="update-alert" style="background:#1e1e1e; padding:12px 15px; border-left: 4px solid #f39c12; border-radius:6px; margin-top:15px; display:none; color: #f1f1f1; font-size: 0.95em;">
@@ -75,19 +76,19 @@
 						Informações sobre o bot!<br />
 						<br />
 					</p>
-					<p id="b_info" style="margin:10px 0; font-size: 0.9em; color:#ccc; text-align: left;">
+					<p class="b_info">
 						Para as funcionalidades "Farois" "Birremes" e "Defesa Terra", tenha o administrador ativo para gerência de grupos separados. E seus repectivos heróis (Exceto para "Defesa Terra"), não seja leso!!.
 					</p>
-					<p id="b_info" style="margin:10px 0; font-size: 0.9em; color:#ccc; text-align: left;">
+					<p class="b_info">
 						Para a funcionalidade "Construção", caso não tenha administrador ativo, sete um grupo chamado "Todos", pois esse é um grupo padrão do grepolis, até mesmo para quem não tem administrador ativo, nesse caso, resta setar um grupo de
 						construção único que será ativado para todas as cidades (Deixe de ser liso e ative essa merda).
 					</p>
-					<p id="b_info" style="margin:10px 0; font-size: 0.9em; color:#ccc; text-align: left;">
+					<p class="b_info">
 						Ainda sobre a aba "Construção, se você tem administrador ativo, ainda recomendamos usar o grupo "Todos" como uma forma base de construção, seta ele no estilo de uma base para todos os grupo, ex: (Pedreira 15, Serraria 15, Mina
 						de prata 15, Senado 15, armazém 20, fazenda 20, templo 5, quartel 5, mercado 10) dessa forma, quando você fundar ela automaticamente cairá no grupo "Todos" e já iniciará essas construções base que qualquer outro grupo vai ter
 						que construir também, assim não perde tempo e depois pode direcionar para o grupo desejado configurado.
 					</p>
-					<p id="b_info" style="margin:10px 0; font-size: 0.9em; color:#ccc; text-align: left;">
+					<p class="b_info">
 						Combo perfeito para setup, ex:<br />
 						tropa terreste.... abas "Construção", "Defesa Terra" e "Pesquisas" usar mesmo grupo, configura as construções, deixa configurado aba Defesa Terra e setado as pesquisas para uma cidade de defesa (de sua escolha). Assim ao mover
 						para esse grupo, ele irá construir, fazer as pesquisas e ao chegar nos requisitos de fabricar as tropas, já inicia tudo, você não precisa se preocupar com nada.
@@ -100,27 +101,27 @@
 			<div class="tab-content" id="farm">
 				<label>
 					Tempo do Loop de Farm:<br />
-					<div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 5px; margin: 5px 0;">
+					<div class="farm-btn">
 						<button class="farm-time-btn" data-min="5">5min</button>
 						<button class="farm-time-btn" data-min="10">10min</button>
 						<button class="farm-time-btn" data-min="20">20min</button>
 						<button class="farm-time-btn" data-min="40">40min</button>
 					</div>
-					<select id="farm_mode_selector" style="margin-top:5px; width: 50%; margin-bottom: 5px;">
+					<select id="farm_mode_selector">
 						<option value="padrao">Modo Rápido (botões acima)</option>
 						<option value="personalizado">Personalizado</option>
 					</select>
-					<input id="farm_loop_time" type="number" min="1" style="width: 10%;" placeholder="Tempo em minutos" disabled />
+					<input id="farm_loop_time" type="number" min="1" placeholder="Tempo em minutos" disabled />
 				</label>
 				<br />
-				<button id="farm_toggle_script" style="background: darkred; color: white; margin-top: 10px;">Ativar Script</button>
+				<button id="farm_toggle_script">Ativar Script</button>
 				<div id="farm_status" style="margin-top:10px;"></div>
 
 				<hr style="margin: 15px 0;" />
 				<div id="aldeia-upgrade-container">
 					<label>
 						Auto Upar Aldeias:<br />
-						<div id="aldeia-nivel-buttons" style="display: flex; justify-content: center; flex-wrap: wrap; gap: 5px; margin: 5px 0;">
+						<div id="aldeia-nivel-buttons" class="farm-btn">
 							<button class="aldeia-nivel-btn" data-nivel="1">Level 1</button>
 							<button class="aldeia-nivel-btn" data-nivel="2">Level 2</button>
 							<button class="aldeia-nivel-btn" data-nivel="3">Level 3</button>
@@ -129,7 +130,7 @@
 							<button class="aldeia-nivel-btn" data-nivel="6">Level 6</button>
 						</div>
 					</label>
-					<button id="aldeia-up-toggle" style="background: darkred; color: white;">Ativar Upe Aldeias</button>
+					<button id="aldeia-up-toggle">Ativar Upe Aldeias</button>
 				</div>
 			</div>
 
@@ -154,9 +155,11 @@
 				</div>
 			</div>
 
-			<div class="tab-content" id="farois">
+			<div class="tab-content" id="FaroisBirremes">
+				<p class="p-padrao-titulo">Agora podem ativar juntos!!</p>
         <div class="tab-content-F-B" style="display: flex; gap: 20px; justify-content: space-between; flex-wrap: wrap;">
           <div class="tab-content-F-B_division" style="flex: 1; min-width: 260px; max-width: 50%;">
+						<p class="p-padrao-titulo">Sistema de Farois</p>
             <label>
               Grupo De Cidades Farois:
               <input id="farois_target_group" type="text" style="width: 30%; margin-left: 40px;" placeholder="Ex: Farois" />
@@ -192,12 +195,14 @@
               Script envia recursos de todas as cidades com prioridade das cidades mais próximas.<br />
               <strong>Grupo ignorado:</strong> Cidades que estejam nesse grupo não serão usadas para envio de recursos.<br />
               <br />
-              <strong>OBS:</strong> Se tiver movimentação de comércio, script irá esperar acabar para enviar os recursos.<br />
-              Não recomendamos o uso <u>dessa função</u> junto com a função "Birremes" ativa, para evitar congelamento por movimentação de recursos.
+              <strong>OBS:</strong> Se tiver movimentação de comércio, script irá esperar acabar para enviar os recursos.<br /> 
             </p>
           </div>
 
+					
+
           <div class="tab-content-F-B_division" style="flex: 1; min-width: 280px; max-width: 50%;">
+						<p class="p-padrao-titulo">Sistema de Birremes</p>
             <label>
               Grupo De Cidades Birremes:
               <input id="b_target_group" type="text" style="width: 30%; margin-left: 23px;" placeholder="Ex: Birremes" />
@@ -221,7 +226,6 @@
               <strong>Grupo ignorado:</strong> Cidades que estejam nesse grupo não serão usadas para envio de recursos.<br />
               <br />
               <strong>OBS:</strong> Se tiver movimentação de comércio, script irá esperar acabar para enviar os recursos.<br />
-              Não recomendamos o uso <u>dessa função</u> junto com a função "Farois" ativa, para evitar congelamento por movimentação de recursos.
             </p>
           </div>
 
@@ -229,6 +233,7 @@
 			</div>
 
 			<div class="tab-content" id="birremes">
+				<p>Movido de aba</p>
 				
 			</div>
 
@@ -294,85 +299,14 @@
 
 				<input id="cultura_min_victory" type="number" min="0" value="0" style="width: 80px; padding: 4px 6px; margin-bottom: 15px; border-radius: 5px; border: 1px solid #888; font-size: 13px; background: #111; color: white;" />
 
-				<div
-					id="cultura_buttons"
-					style="
-               display: grid;
-               grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-               gap: 8px;
-             "
-				>
-					<button
-						class="cultura-btn"
-						data-type="party"
-						style="
-                padding: 6px 10px;
-                background: #222;
-                color: white;
-                border: 1px solid #666;
-                border-radius: 5px;
-                font-weight: bold;
-                font-size: 13px;
-                cursor: pointer;
-                transition: all 0.2s;
-              "
-					>
-						Festival Urbano
-					</button>
+				<div id="cultura_buttons">
+					<button class="cultura-btn" data-type="party"> Festival Urbano </button>
 
-					<button
-						class="cultura-btn"
-						data-type="games"
-						style="
-                padding: 6px 10px;
-                background: #222;
-                color: white;
-                border: 1px solid #666;
-                border-radius: 5px;
-                font-weight: bold;
-                font-size: 13px;
-                cursor: pointer;
-                transition: all 0.2s;
-              "
-					>
-						Jogos Olímpicos
-					</button>
+					<button class="cultura-btn" data-type="games">	Jogos Olímpicos </button>
 
-					<button
-						class="cultura-btn"
-						data-type="triumph"
-						style="
-                padding: 6px 10px;
-                background: #222;
-                color: white;
-                border: 1px solid #666;
-                border-radius: 5px;
-                font-weight: bold;
-                font-size: 13px;
-                cursor: pointer;
-                transition: all 0.2s;
-              "
-					>
-						Desfile da Vitória
-					</button>
+					<button	class="cultura-btn" data-type="triumph">	Desfile da Vitória </button>
 
-					<button
-						class="cultura-btn"
-						data-type="theater"
-						style="
-                padding: 6px 10px;
-                background: #222;
-                color: white;
-                border: 1px solid #666;
-                border-radius: 5px;
-                font-weight: bold;
-                font-size: 13px;
-                cursor: pointer;
-                transition: all 0.2s;
-              "
-					>
-						Peças de Teatro
-					</button>
+					<button class="cultura-btn" data-type="theater">	Peças de Teatro </button>
 				</div>
 			</div>
 
@@ -750,7 +684,7 @@
 </script>
 
 <style>
-
+	/* aba Painel */
 	#script-panel {
 	  position: fixed;
 	  left: 0px;
@@ -827,7 +761,7 @@
 	}
 
 	.tab-content {
-	  padding: 12px;
+	  padding: 5px;
 	  display: none;
 	  font-size: 0.9em;
 	  color: #ccc;
@@ -837,4 +771,93 @@
 	.tab-content.active {
 	  display: block;
 	}
+	/* Fim aba Painel */
+
+	/* aba Home */
+	.home-btn-config {
+		margin-bottom: 5px; 
+		width: 45%;
+	}
+	/* changelog*/
+	#changelog-content {
+		display:none; 
+		background:#121212; 
+		padding:15px; 
+		border-radius:6px; 
+		margin-top:10px; 
+		border: 1px solid #2e2e2e;
+	}
+
+	.b_info {
+		margin:10px 0; 
+		font-size: 0.9em; 
+		color:#ccc; 
+		text-align: left;
+	}
+	/* Fim aba home */
+
+	/* aba Farm e Aldeias */
+	#farm_mode_selector {
+		margin-top:5px; 
+		width: 50%; 
+		margin-bottom: 5px;
+	}
+
+	#farm_loop_time {
+		width: 10%;
+	}
+
+	#farm_toggle_script {
+		background: darkred; 
+		color: white; 
+		margin-top: 10px;
+	}
+
+	#aldeia-up-toggle {
+		background: darkred; 
+		color: white;
+	}
+
+	.farm-btn {
+		display: flex; 
+		justify-content: center; 
+		flex-wrap: wrap; 
+		gap: 5px; 
+		margin: 5px 0;
+	}
+
+	/* Fim aba Farm e Aldeias */
+
+	/* aba Construção */
+
+	/* Fim aba Construção */
+
+	/* aba farois e birremes */
+
+	.p-padrao-titulo {
+		font-size: 20px;
+		font-weight: bold;
+		text-decoration: underline;
+		margin: 8px;
+	}
+	/* Fim aba farois e birremes */
+
+	/* Aba Cultura */
+	#cultura_buttons {
+		display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 12px;
+	}
+	.cultura-btn {
+		padding: 6px 10px;
+    background: #222;
+    color: white;
+    border: 1px solid #666;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+	}
+	/* Fim Aba Cultura */
 </style>
