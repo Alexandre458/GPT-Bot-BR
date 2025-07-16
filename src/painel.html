@@ -1,17 +1,16 @@
-<div id="script-panel" style="position: fixed; left: 0px; top: 0px; background: #1e1e2f; border: 1px solid #444; z-index: 9999; width: 600px; font-family: 'Segoe UI', sans-serif; color: #fff; border-radius: 12px; box-shadow: 0 0 10px rgba(0,0,0,0.7);">
-  <div id="drag-header" style="background: #2b2b3d; padding: 12px 15px; font-size: 1.1em; display: flex; justify-content: space-between; align-items: center; border-top-left-radius: 12px; border-top-right-radius: 12px;">
-    <span id="panel-title">
-      <img src="https://i.imgur.com/9CZnA4g.gif" alt="Logo" style="height: 20px; vertical-align: middle; margin-right: 5px;">
-      GPT-Bot-BR - Grepolis ⚙️  
-    </span>
-
-    <div style="display:flex; gap: 6px;">
-      <button id="toggle-min" title="Minimizar" style="background: #444; border: none; color: white; border-radius: 6px; padding: 2px 6px; cursor: pointer;">_ </button>
-      <button id="logout-script" title="Sair" style="background: #e74c3c; border: none; padding: 2px 10px; color: white; border-radius: 6px; font-weight: bold; cursor: pointer;">Sair</button>
+<div id="script-panel">
+    <div id="drag-header">
+      <span id="panel-title">
+        <img src="https://i.imgur.com/9CZnA4g.gif" alt="Logo">
+        GPT-Bot-BR - Grepolis ⚙️
+      </span>
+      <div>
+        <button id="toggle-min" title="Minimizar">_</button>
+        <button id="logout-script" title="Sair">Sair</button>
+      </div>
     </div>
-  </div>
 
-  <div id="script-body" style="padding-bottom: 10px;">
+    <div id="script-body">
       <div class="tabs">
         <div class="gpt-tab" data-tab="home">Home</div>
         <div class="gpt-tab" data-tab="farm">Farm e Aldeias</div>
@@ -675,6 +674,57 @@
 
 
     <style>
+
+      #script-panel {
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        background: #1e1e2f;
+        border: 1px solid #444;
+        z-index: 9999;
+        width: 600px;
+        font-family: 'Segoe UI', sans-serif;
+        color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.7);
+      }
+
+      #drag-header {
+        background: #2b2b3d;
+        padding: 12px 15px;
+        font-size: 1.1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top-left-radius: 12px;
+        border-top-right-radius: 12px;
+      }
+
+      #drag-header img {
+        height: 20px;
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+
+      #drag-header button {
+        background: #444;
+        border: none;
+        color: white;
+        border-radius: 6px;
+        padding: 2px 6px;
+        cursor: pointer;
+      }
+
+      #logout-script {
+        background: #e74c3c !important;
+        padding: 2px 10px;
+        font-weight: bold;
+      }
+
+      #script-body {
+        padding-bottom: 10px;
+      }
+
       .tabs {
         display: flex;
         flex-wrap: wrap;
