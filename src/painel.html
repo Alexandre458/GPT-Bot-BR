@@ -1089,12 +1089,20 @@
 </script>
 
 <style>
+	/* Variáveis */
+	:root {
+		--cor-painel-back: #1e1e2f;
+		--cor-drag-header: #2b2b3d;
+		--cor-painel-tab-back: #3a3a4d;
+		--cor-painel-tab-active: #4a3751;
+}
+
 	/* aba Painel */
 	#script-panel {
 	  position: fixed;
 	  left: 0px;
 	  top: 0px;
-	  background: #1e1e2f;
+	  background: var(--cor-painel-back);
 	  border: 1px solid #444;
 	  z-index: 9999;
 	  width: 600px;
@@ -1105,7 +1113,7 @@
 	}
 
 	#drag-header {
-	  background: #2b2b3d;
+	  background: var(--cor-drag-header);
 	  padding: 12px 15px;
 	  font-size: 1.1em;
 	  display: flex;
@@ -1160,7 +1168,7 @@
 	}
 
 	.gpt-tab.active {
-	  background: #444;
+	  background: #4a3751;
 	  font-weight: bold;
 	  border-bottom: 2px solid #6fa8dc;
 	}
