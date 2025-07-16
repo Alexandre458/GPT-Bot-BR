@@ -155,72 +155,81 @@
 			</div>
 
 			<div class="tab-content" id="farois">
-				<label>
-					Grupo De Cidades Farois:
-					<input id="farois_target_group" type="text" style="width: 30%; margin-left: 40px;" placeholder="Ex: Farois" />
-				</label>
-				<br />
-				<label>
-					Grupo ignorado (Para Recursos):
-					<input id="farois_ignore_group" type="text" style="width: 30%;" placeholder="Ex: OC64" />
-				</label>
-				<br />
-				<label>
-					Iniciar a partir da Fazenda nível:
-					<input id="farois_farm_level" type="number" min="1" value="45" style="width: 60px; margin-left: 8px;" />
-				</label>
-				<br />
-				<label>
-					Iniciar a partir do Armazém nível:
-					<input id="farois_storage_level" type="number" min="1" value="20" style="width: 60px;" />
-				</label>
-				<br />
-				<label>
-					Iniciar a partir do Porto nível:
-					<input id="farois_docks_level" type="number" min="1" value="10" style="width: 60px; margin-left: 23px;" />
-				</label>
-				<br />
-				<br />
+        <div class="tab-content-F-B" style="display: flex; gap: 40px; justify-content: space-between; flex-wrap: wrap;">
+          <div class="tab-content-F-B_division" style="flex: 1; min-width: 280px;">
+            <label>
+              Grupo De Cidades Farois:
+              <input id="farois_target_group" type="text" style="width: 30%; margin-left: 40px;" placeholder="Ex: Farois" />
+            </label>
+            <br />
+            <label>
+              Grupo ignorado (Para Recursos):
+              <input id="farois_ignore_group" type="text" style="width: 30%;" placeholder="Ex: OC64" />
+            </label>
+            <br />
+            <label>
+              Iniciar a partir da Fazenda nível:
+              <input id="farois_farm_level" type="number" min="1" value="45" style="width: 60px; margin-left: 8px;" />
+            </label>
+            <br />
+            <label>
+              Iniciar a partir do Armazém nível:
+              <input id="farois_storage_level" type="number" min="1" value="20" style="width: 60px;" />
+            </label>
+            <br />
+            <label>
+              Iniciar a partir do Porto nível:
+              <input id="farois_docks_level" type="number" min="1" value="10" style="width: 60px; margin-left: 23px;" />
+            </label>
+            <br />
+            <br />
 
-				<button id="farois_save_config">Salvar Configurações</button>
-				<button id="farois_toggle_script" style="margin-left:5px; background: darkred; color: white;">Ativar Script</button>
-				<div id="farois_status" style="margin-top:10px;"></div>
-				<p id="b_info" style="margin:10px 0; font-size: 0.9em; color:#ccc; text-align: left;">
-					Defina o grupo alvo para recrutamento automático de farois. Aristóteles será movido para a cidade com maior população livre.<br />
-					Script envia recursos de todas as cidades com prioridade das cidades mais próximas.<br />
-					<strong>Grupo ignorado:</strong> Cidades que estejam nesse grupo não serão usadas para envio de recursos.<br />
-					<br />
-					<strong>OBS:</strong> Se tiver movimentação de comércio, script irá esperar acabar para enviar os recursos.<br />
-					Não recomendamos o uso <u>dessa função</u> junto com a função "Birremes" ativa, para evitar congelamento por movimentação de recursos.
-				</p>
+            <button id="farois_save_config">Salvar Configurações</button>
+            <button id="farois_toggle_script" style="margin-left:5px; background: darkred; color: white;">Ativar Script</button>
+            <div id="farois_status" style="margin-top:10px;"></div>
+            <p id="b_info" style="margin:10px 0; font-size: 0.9em; color:#ccc; text-align: left;">
+              Defina o grupo alvo para recrutamento automático de farois. Aristóteles será movido para a cidade com maior população livre.<br />
+              Script envia recursos de todas as cidades com prioridade das cidades mais próximas.<br />
+              <strong>Grupo ignorado:</strong> Cidades que estejam nesse grupo não serão usadas para envio de recursos.<br />
+              <br />
+              <strong>OBS:</strong> Se tiver movimentação de comércio, script irá esperar acabar para enviar os recursos.<br />
+              Não recomendamos o uso <u>dessa função</u> junto com a função "Birremes" ativa, para evitar congelamento por movimentação de recursos.
+            </p>
+          </div>
+
+          <div class="tab-content-F-B_division" style="flex: 1; min-width: 280px;">
+            <label>
+              Grupo De Cidades Birremes:
+              <input id="b_target_group" type="text" style="width: 30%; margin-left: 23px;" placeholder="Ex: Birremes" />
+            </label>
+            <br />
+            <label>
+              Grupo ignorado (Para Recursos):
+              <input id="b_ignore_group" type="text" style="width: 30%;" placeholder="Ex: OC64" />
+            </label>
+            <br />
+            <label>Iniciar a partir da Fazenda nível: <input id="b_farm_level" type="number" min="1" value="45" style="width: 60px; margin-left: 8px;" /></label><br />
+            <label>Iniciar a partir do Armazém nível: <input id="b_storage_level" type="number" min="1" value="20" style="width: 60px;" /></label><br />
+            <label>Iniciar a partir do Porto nível: <input id="b_docks_level" type="number" min="1" value="10" style="width: 60px; margin-left: 23px;" /></label><br />
+            <br />
+            <button id="b_save_config">Salvar Configurações</button>
+            <button id="b_toggle_script" style="background: darkred; color: white; margin-left: 10px;">Ativar Script</button>
+            <div id="b_status" style="margin-top:10px; color:lightgreen;"></div>
+            <p id="b_info" style="margin:10px 0; font-size: 0.9em; color:#ccc; text-align: left;">
+              Defina o grupo alvo para recrutamento automático de birremes. Dédalo será movido para a cidade com maior população livre.<br />
+              Script envia recursos de todas as cidades com prioridade das cidades mais próximas.<br />
+              <strong>Grupo ignorado:</strong> Cidades que estejam nesse grupo não serão usadas para envio de recursos.<br />
+              <br />
+              <strong>OBS:</strong> Se tiver movimentação de comércio, script irá esperar acabar para enviar os recursos.<br />
+              Não recomendamos o uso <u>dessa função</u> junto com a função "Farois" ativa, para evitar congelamento por movimentação de recursos.
+            </p>
+          </div>
+
+        </div>
 			</div>
 
 			<div class="tab-content" id="birremes">
-				<label>
-					Grupo De Cidades Birremes:
-					<input id="b_target_group" type="text" style="width: 30%; margin-left: 23px;" placeholder="Ex: Birremes" />
-				</label>
-				<br />
-				<label>
-					Grupo ignorado (Para Recursos):
-					<input id="b_ignore_group" type="text" style="width: 30%;" placeholder="Ex: OC64" />
-				</label>
-				<br />
-				<label>Iniciar a partir da Fazenda nível: <input id="b_farm_level" type="number" min="1" value="45" style="width: 60px; margin-left: 8px;" /></label><br />
-				<label>Iniciar a partir do Armazém nível: <input id="b_storage_level" type="number" min="1" value="20" style="width: 60px;" /></label><br />
-				<label>Iniciar a partir do Porto nível: <input id="b_docks_level" type="number" min="1" value="10" style="width: 60px; margin-left: 23px;" /></label><br />
-				<br />
-				<button id="b_save_config">Salvar Configurações</button>
-				<button id="b_toggle_script" style="background: darkred; color: white; margin-left: 10px;">Ativar Script</button>
-				<div id="b_status" style="margin-top:10px; color:lightgreen;"></div>
-				<p id="b_info" style="margin:10px 0; font-size: 0.9em; color:#ccc; text-align: left;">
-					Defina o grupo alvo para recrutamento automático de birremes. Dédalo será movido para a cidade com maior população livre.<br />
-					Script envia recursos de todas as cidades com prioridade das cidades mais próximas.<br />
-					<strong>Grupo ignorado:</strong> Cidades que estejam nesse grupo não serão usadas para envio de recursos.<br />
-					<br />
-					<strong>OBS:</strong> Se tiver movimentação de comércio, script irá esperar acabar para enviar os recursos.<br />
-					Não recomendamos o uso <u>dessa função</u> junto com a função "Farois" ativa, para evitar congelamento por movimentação de recursos.
-				</p>
+				
 			</div>
 
 			<div class="tab-content" id="defesa">
