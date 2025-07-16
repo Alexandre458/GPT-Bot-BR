@@ -30,7 +30,7 @@
       </div>
 
     <div class="content" style="padding: 12px;">
-      <div class="tab-content active" id="home" style="display: block; font-size: 0.9em; color: #ccc; line-height: 1.5;">
+      <div class="tab-content active" id="home">
         <div style="margin-top: 8px;">
         <p style="font-size: 16px; font-weight: bold;">
           Importe e Exporte funcional, Assim que importar arquivo, recarregar página.
@@ -97,7 +97,7 @@
         </div>
       </div>
 
-      <div class="tab-content" id="farm" style="display:none">
+      <div class="tab-content" id="farm"></div>
         <label>Tempo do Loop de Farm:<br>
           <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 5px; margin: 5px 0;">
             <button class="farm-time-btn" data-min="5">5min</button>
@@ -131,7 +131,7 @@
       </div>
 
 
-        <div class="tab-content" id="construcao" style="display:none";>
+        <div class="tab-content" id="construcao"></div>
           <div style="max-height: 350px; overflow-y: auto; padding: 10px; box-sizing: border-box; width: 100%;">
             <label style="margin-top: 10px; display:block">
               <select id="group-selector" style="width:50%; margin-bottom:10px;"></select> ⬅ Grupos salvo
@@ -150,7 +150,7 @@
           </div>
         </div>
 
-        <div class="tab-content" id="farois" style="display:none;">
+        <div class="tab-content" id="farois"></div>
         <label>Grupo De Cidades Farois:
           <input id="farois_target_group" type="text" style="width: 30%; margin-left: 40px;" placeholder="Ex: Farois">
         </label><br>
@@ -179,7 +179,7 @@
          </p>
         </div>
 
-        <div class="tab-content" id="birremes" style="display:none";>
+        <div class="tab-content" id="birremes"></div>
           <label>Grupo De Cidades Birremes:
             <input id="b_target_group" type="text" style="width: 30%; margin-left: 23px;" placeholder="Ex: Birremes">
          </label><br>
@@ -201,7 +201,7 @@
          </p>
        </div>
 
-        <div class="tab-content" id="defesa" style="display:none;">
+        <div class="tab-content" id="defesa"></div>
         <div style="max-height: 300px; overflow-y: auto; padding-right: 5px;">
           <label>Grupo De Cidades Defesa:
             <input id="defesa_target_group" type="text" style="width: 30%; margin-left: 35px;" placeholder="Ex: Defesa">
@@ -232,7 +232,7 @@
           <div id="defesa_status" style="margin-top:10px;"></div>
         </div>
 
-       <div class="tab-content" id="pesquisas" style="display:none;">
+       <div class="tab-content" id="pesquisas"></div>
         <label>Grupo:
           <input type="text" id="pesquisa_group_name" placeholder="Ex: Defesa" style="width:40%; margin-bottom:10px;">
         </label>
@@ -251,7 +251,7 @@
 
 
 
-        <div class="tab-content" id="cultura" style="display:none;">
+        <div class="tab-content" id="cultura"></div>
           <p style="margin-bottom: 10px; font-size: 14px;">Eventos culturais automáticos.</p>
           <p style="margin-bottom: 10px; font-size: 14px;">Código checa a cada 5 minutos a tentativa de evento culturais.</p>
           <label for="cultura_min_victory" style="display: block; margin-bottom: 6px; font-size: 13px;">
@@ -317,7 +317,7 @@
         </div>
 
 
-        <div class="tab-content" id="notificacao" style="display:none;">
+        <div class="tab-content" id="notificacao"></div>
           <label>Whatsapp (cód. país + DDD + número):<br>
             <button id="whatsapp-test" style="margin: 5px 0; width: 45%;">Testar requisição WhatsApp</button>
             <input id="whatsapp-number" style="width: 30%; margin-bottom: 5px; margin-left: 10px;" placeholder="Ex: 558899999999">
@@ -345,7 +345,7 @@
           <input type="checkbox" id="notify-market-discord" checked> Discord</label>
         </div>
 
-        <div class="tab-content" id="apoio" style="display:none">
+        <div class="tab-content" id="apoio"></div>
           <p style="font-weight: bold; font-size: 12px;">OBS: Para usar todas cidades do jogo, use o grupo de cidade "Todos".</p>
           <hr>
           <h3 class="titulo-aba">Enviar Apoio</h3>
@@ -437,18 +437,18 @@
           <div id="mensagem-apoio" style="color: lightgreen; margin-top: 10px; display: none;">Configurações salvas com sucesso!</div>
         </div>
 
-        <div class="tab-content" id="gold" style="display:none">
+        <div class="tab-content" id="gold"></div>
           <p>ACESSE ABA DE NOTIFICAÇÃO</p>
         </div>
 
-        <div class="tab-content" id="voador" style="display:none">
+        <div class="tab-content" id="voador"></div>
           <p>Será adicionado funcionalidade para auto fazer voadores com sistema de farms de favores.</p>
         </div>
-        <div class="tab-content" id="spammp" style="display:none">
+        <div class="tab-content" id="spammp"></div>
           <p>Será adicionado funcionalidade para auto fazer voadores com sistema de farms de favores.</p>
         </div>
 
-        <div class="tab-content" id="nc" style="display:none">
+        <div class="tab-content" id="nc"></div>
           <p>Aba muito usada para mults de NC, para fabricação e envio de NC.</p>
           <hr>
           <h4 style="margin: 5px 0; color: white;">🔁 Envio Automático de NC</h4>
@@ -472,7 +472,7 @@
           <div id="nc_fabricacao_status" style="margin-top: 5px;"></div>
         </div>
 
-        <div class="tab-content" id="extra" style="display:none">
+        <div class="tab-content" id="extra"></div>
           <div style="max-height: 300px; overflow-y: auto; padding-right: 5px;">
             <p> Auto Refresh </p>
             <label>Tempo para reload de página:
@@ -618,11 +618,8 @@
               <button id="praga_toggle_script" style="background: darkred; color: white; width: 91px">Ativar Praga</button>
             </label>
             <div id="praga_status" style="margin: 10px;"></div>
-            
-
           </div>
         </div>
-
     </div>
   </div>
 </div>
@@ -642,34 +639,6 @@
         t.style.color = '#eee';
       });
 
-      // ✅ Corrigido: usando .gpt-tab
-      function aplicarEstilosPainel() {
-        $('.tabs').css({
-          'display': 'grid',
-          'grid-template-columns': 'repeat(auto-fit, minmax(100px, 1fr))',
-          'gap': '2px'
-        });
-
-        $('.gpt-tab').css({
-          'padding': '8px',
-          'text-align': 'center',
-          'font-size': '13px',
-          'cursor': 'pointer',
-          'user-select': 'none',
-          'background': '#3a3a4d',
-          'color': '#eee',
-          'transition': 'background 0.2s',
-          'border-bottom': '2px solid transparent'
-        });
-
-        $('.gpt-tab.active').css({
-          'background': '#444',
-          'font-weight': 'bold',
-          'border-bottom': '2px solid #6fa8dc'
-        });
-      }
-
-      aplicarEstilosPainel();
     </script>
 
 
@@ -742,5 +711,23 @@
         transition: background 0.2s;
         border-right: 1px solid #444;
         color: #eee;
+      }
+
+      .gpt-tab.active {
+        background: #444;
+        font-weight: bold;
+        border-bottom: 2px solid #6fa8dc;
+      }
+
+      .tab-content {
+        padding: 12px;
+        display: none;
+        font-size: 0.9em;
+        color: #ccc;
+        line-height: 1.5;
+      }
+
+      .tab-content.active {
+        display: block;
       }
     </style>
