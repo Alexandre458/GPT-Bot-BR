@@ -12,22 +12,22 @@
   </div>
 
   <div id="script-body" style="padding-bottom: 10px;">
-    <div class="tabs" style="display: flex; flex-wrap: wrap; background: #3a3a4d; border-bottom: 1px solid #555;">
-      <div class="gpt-tab" data-tab="home" style="flex: 1 0 25%; padding: 8px; text-align: center; font-size: 13px; cursor: pointer; user-select: none; transition: background 0.2s;">Home</div>
-      <div class="gpt-tab" data-tab="farm" style="flex: 1 0 25%; padding: 8px; text-align: center; font-size: 13px; cursor: pointer; user-select: none; transition: background 0.2s;">Farm e Aldeias</div>
-      <div class="gpt-tab" data-tab="construcao" style="flex: 1 0 25%; padding: 8px; text-align: center; font-size: 13px; cursor: pointer; user-select: none; transition: background 0.2s;">Construção</div>
-      <div class="gpt-tab" data-tab="farois" style="flex: 1 0 25%; padding: 8px; text-align: center; font-size: 13px; cursor: pointer; user-select: none; transition: background 0.2s;">Farois</div>
-      <div class="gpt-tab" data-tab="birremes" style="flex: 1 0 25%; padding: 8px; text-align: center; font-size: 13px; cursor: pointer; user-select: none; transition: background 0.2s;">Birremes</div>
-      <div class="gpt-tab" data-tab="defesa" style="flex: 1 0 25%; padding: 8px; text-align: center; font-size: 13px; cursor: pointer; user-select: none; transition: background 0.2s;">Defesa Terra</div>
-      <div class="gpt-tab" data-tab="pesquisas" style="flex: 1 0 25%; padding: 8px; text-align: center; font-size: 13px; cursor: pointer; user-select: none; transition: background 0.2s;">Pesquisas</div>
-      <div class="gpt-tab" data-tab="cultura" style="flex: 1 0 25%; padding: 8px; text-align: center; font-size: 13px; cursor: pointer; user-select: none; transition: background 0.2s;">Cultura</div>
-      <div class="gpt-tab" data-tab="notificacao" style="flex: 1 0 25%; padding: 8px; text-align: center; font-size: 13px; cursor: pointer; user-select: none; transition: background 0.2s;">Notificação</div>
-      <div class="gpt-tab" data-tab="apoio" style="flex: 1 0 25%; padding: 8px; text-align: center; font-size: 13px; cursor: pointer; user-select: none; transition: background 0.2s;">Enviar Apoio</div>
-      <div class="gpt-tab" data-tab="gold" style="flex: 1 0 25%; padding: 8px; text-align: center; font-size: 13px; cursor: pointer; user-select: none; transition: background 0.2s;">RETIRADA</div>
-      <div class="gpt-tab" data-tab="voador" style="flex: 1 0 25%; padding: 8px; text-align: center; font-size: 13px; cursor: pointer; user-select: none; transition: background 0.2s;">Auto Farm Voador</div>
-      <div class="gpt-tab" data-tab="spammp" style="flex: 1 0 25%; padding: 8px; text-align: center; font-size: 13px; cursor: pointer; user-select: none; transition: background 0.2s;">Spam MP / Block Spam </div>
-      <div class="gpt-tab" data-tab="nc" style="flex: 1 0 25%; padding: 8px; text-align: center; font-size: 13px; cursor: pointer; user-select: none; transition: background 0.2s;">Sistema de NC's </div>
-      <div class="gpt-tab" data-tab="extra" style="flex: 1 0 25%; padding: 8px; text-align: center; font-size: 13px; cursor: pointer; user-select: none; transition: background 0.2s;">Utilidades</div>
+      <div class="tabs">
+        <div class="gpt-tab" data-tab="home">Home</div>
+        <div class="gpt-tab" data-tab="farm">Farm e Aldeias</div>
+        <div class="gpt-tab" data-tab="construcao">Construção</div>
+        <div class="gpt-tab" data-tab="farois">Farois</div>
+        <div class="gpt-tab" data-tab="birremes">Birremes</div>
+        <div class="gpt-tab" data-tab="defesa">Defesa Terra</div>
+        <div class="gpt-tab" data-tab="pesquisas">Pesquisas</div>
+        <div class="gpt-tab" data-tab="cultura">Cultura</div>
+        <div class="gpt-tab" data-tab="notificacao">Notificação</div>
+        <div class="gpt-tab" data-tab="apoio">Enviar Apoio</div>
+        <div class="gpt-tab" data-tab="gold">RETIRADA</div>
+        <div class="gpt-tab" data-tab="voador">Auto Farm Voador</div>
+        <div class="gpt-tab" data-tab="spammp">Spam MP / Block Spam</div>
+        <div class="gpt-tab" data-tab="nc">Sistema de NC's</div>
+        <div class="gpt-tab" data-tab="extra">Utilidades</div>
       </div>
 
     <div class="content" style="padding: 12px;">
@@ -675,7 +675,22 @@
 
 
     <style>
-      .farois-text {
-        text-align: left;
+      .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        background: #3a3a4d;
+        border-bottom: 1px solid #555;
+      }
+
+      .gpt-tab {
+        flex: 1 0 25%;
+        padding: 8px;
+        text-align: center;
+        font-size: 13px;
+        cursor: pointer;
+        user-select: none;
+        transition: background 0.2s;
+        border-right: 1px solid #444;
+        color: #eee;
       }
     </style>
