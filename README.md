@@ -10,6 +10,35 @@ O acesso aos scripts deste projeto é controlado por um sistema de login.
 
 ---
 
+## 🛠️ Estrutura Técnica
+
+A plataforma de autenticação e entrega dos scripts foi desenvolvida com foco em segurança e escalabilidade.
+
+**Tecnologias utilizadas:**
+- **Node.js + Express** — Servidor principal da API
+- **PostgreSQL + Sequelize** — Banco de dados relacional com ORM
+- **JWT (JSON Web Token)** — Autenticação por sessão temporária
+- **Sistema de Licenças** — Cada usuário possui permissões, duração e validade configuráveis
+
+O sistema valida o acesso ao script de forma individual, controlando sessões e protegendo o conteúdo original.
+
+## 📡 Integração com WhatsApp
+
+O sistema de notificações do bot utiliza uma **API WhatsApp própria**, desenvolvida para permitir comunicação direta entre o jogo e o jogador via mensagens automatizadas.
+
+**Tecnologias utilizadas na API WhatsApp:**
+
+- **Node.js + Express** — Servidor backend leve e rápido
+- **Baileys** — Biblioteca para conexão com o WhatsApp Web
+- **WebSocket** — Comunicação em tempo real entre cliente e servidor
+- **REST API (HTTP)** — Interface para envio de mensagens e gerenciamento de sessões
+- **QR Code Generator** — Para pareamento com a conta WhatsApp
+- **Banco de dados (SQLite ou MongoDB)** — Para persistência de sessões e controle de envio
+- **PM2** — Gerenciador de processos para manter a API ativa de forma contínua
+
+A API roda em ambiente local ou em servidor privado, garantindo notificações seguras e instantâneas configuradas individualmente por cada usuário.
+
+
 # ⚔️ Scripts de Automação para Grepolis
 
 Este repositório contém scripts Tampermonkey desenvolvidos para automatizar diversas tarefas no jogo [Grepolis](https://www.grepolis.com/).  
