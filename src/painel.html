@@ -37,7 +37,20 @@
 					</p>
 					<button id="export-localstorage" class="home-btn-config">📤 Exportar Configurações</button>
 					<input type="file" id="import-localstorage-file" accept=".json" style="display:none" />
-					<button id="import-localstorage" class="home-btn-config">📥 Importar Configurações</button>
+					<button id="import-localstorage" class="home-btn-config">📥 Importar Configurações</button><br>
+					<p style="color: #ccc; font-size: 0.9em;">
+  					Fale comigo no Discord <a href="https://discord.com/users/123456789012345678" target="_blank" style="color: #7289da;">Alexandre458#7418</a>
+					</p>
+					<div id="licenca-info" style="
+						color: #ccc;
+						font-size: 12px;
+						text-align: center;
+						margin-top: 6px;
+						margin-bottom: 10px;
+					">
+						⏳ Carregando licença...
+					</div>
+
 				</div>
 
 				<div style="max-height: 300px; overflow-y: auto; padding-right: 5px;">
@@ -135,7 +148,7 @@
 			</div>
 
 			<div class="tab-content" id="construcao">
-				<div style="max-height: 350px; overflow-y: auto; padding: 10px; box-sizing: border-box; width: 100%;">
+				<div class="scross-tela">
 					<label style="margin-top: 10px; display:block">
 						<select id="group-selector" style="width:50%; margin-bottom:10px;"></select>
 						⬅ Grupos salvo
@@ -311,42 +324,52 @@
 			</div>
 
 			<div class="tab-content" id="notificacao">
-				<label>
-					Whatsapp (cód. país + DDD + número):<br />
-					<button id="whatsapp-test" style="margin: 5px 0; width: 45%;">Testar requisição WhatsApp</button>
-					<input id="whatsapp-number" style="width: 30%; margin-bottom: 5px; margin-left: 10px;" placeholder="Ex: 558899999999" />
-				</label>
-				<br />
+				<div class="scross-tela">
+					<label>
+						Whatsapp (cód. país + DDD + número):<br />
+						<button id="whatsapp-test" style="margin: 5px 0; width: 45%;">Testar requisição WhatsApp</button>
+						<input id="whatsapp-number" style="width: 30%; margin-bottom: 5px; margin-left: 10px;" placeholder="Ex: 558899999999" />
+					</label>
+					<br />
 
-				<small>OBS: Se não chegou, talvez seu contato precise do 9 adicional ou removê-lo.</small>
-				<hr />
-				<label>
-					Discord Webhook:<br />
-					<input id="discord-webhook" style="width: 85%; margin-bottom: 10px;" placeholder="https://discord.com/api/webhooks/..." />
-				</label>
-				<br />
-				<label>
-					<input type="checkbox" id="notify-attack" checked /> Notificar ataques? >> <input style="margin-left: 59px;" type="checkbox" id="notify-attack-whatsapp" checked /> Whatsapp
-					<input type="checkbox" id="notify-attack-discord" checked /> Discord
-				</label>
-				<br />
+					<small>OBS: Se não chegou, talvez seu contato precise do 9 adicional ou removê-lo.</small>
+					<hr />
+					<label>
+						Discord Webhook:<br />
+						<input id="discord-webhook" style="width: 85%; margin-bottom: 10px;" placeholder="https://discord.com/api/webhooks/..." />
+					</label>
+					<br />
+					<label>
+						<input type="checkbox" id="notify-attack" checked /> Notificar ataques? >> <input style="margin-left: 59px;" type="checkbox" id="notify-attack-whatsapp" checked /> Whatsapp
+						<input type="checkbox" id="notify-attack-discord" checked /> Discord
+					</label>
+					<br />
 
-				<label>
-					<input type="checkbox" id="notify-slot" checked /> Notificar slot disponível? >> <input style="margin-left: 21px;" type="checkbox" id="notify-slot-whatsapp" checked /> Whatsapp
-					<input type="checkbox" id="notify-slot-discord" checked /> Discord
-				</label>
-				<br />
+					<label>
+						<input type="checkbox" id="notify-slot" checked /> Notificar slot disponível? >> <input style="margin-left: 21px;" type="checkbox" id="notify-slot-whatsapp" checked /> Whatsapp
+						<input type="checkbox" id="notify-slot-discord" checked /> Discord
+					</label>
+					<br />
 
-				<label>
-					<input type="checkbox" id="notify-captcha" checked /> Notificar Captchan? >> <input style="margin-left: 50px;" type="checkbox" id="notify-captcha-whatsapp" checked /> Whatsapp
-					<input type="checkbox" id="notify-captcha-discord" checked /> Discord
-				</label>
-				<br />
+					<label>
+						<input type="checkbox" id="notify-captcha" checked /> Notificar Captchan? >> <input style="margin-left: 50px;" type="checkbox" id="notify-captcha-whatsapp" checked /> Whatsapp
+						<input type="checkbox" id="notify-captcha-discord" checked /> Discord
+					</label>
+					<br />
 
-				<label>
-					<input type="checkbox" id="notify-market" checked /> Notificar Gold no mercado? >> <input type="checkbox" id="notify-market-whatsapp" checked /> Whatsapp <input type="checkbox" id="notify-market-discord" checked /> Discord
-				</label>
+					<label>
+						<input type="checkbox" id="notify-market" checked /> Notificar Gold no mercado? >> <input type="checkbox" id="notify-market-whatsapp" checked /> Whatsapp <input type="checkbox" id="notify-market-discord" checked /> Discord
+					</label><br>
+				</div>
+				<hr>
+				<div style="margin: 10px; color: white;">
+					<span>Ignorar notificação ataque para os jogadores:</span><br>
+					<input id="ignore-input" placeholder="Nome do jogador" style="width: 200px;" />
+					<button style="width: 100px; margin-bottom: 5px;" onclick="adicionarIgnorado()">Adicionar</button><br>
+					<ul id="ignore-list" style="display: flex; flex-wrap: wrap; max-width: 300px; padding: 0; gap: 4px;"></ul>
+				</div>
 			</div>
+
 
 			<div class="tab-content" id="apoio">
 				<p style="font-weight: bold; font-size: 12px;">OBS: Para usar todas cidades do jogo, use o grupo de cidade "Todos".</p>
@@ -1086,6 +1109,7 @@
 	  t.style.borderRight = '1px solid #444';
 	  t.style.color = '#eee';
 	});
+
 </script>
 
 <style>
@@ -1096,6 +1120,18 @@
 		--cor-painel-tab-back: #3a3a4d;
 		--cor-painel-tab-active: #4a3751;
 }
+
+	/* geral */
+
+	.scross-tela {
+		max-height: 350px; 
+		overflow-y: auto; 
+		padding: 10px; 
+		box-sizing: border-box; 
+		width: 100%;
+	}
+
+	/* fim geral */
 
 	/* aba Painel */
 	#script-panel {
@@ -1151,7 +1187,7 @@
 	.tabs {
 	  display: flex;
 	  flex-wrap: wrap;
-	  background: #3a3a4d;
+	  background: var(--cor-painel-tab-back);
 	  border-bottom: 1px solid #555;
 	}
 
@@ -1168,7 +1204,7 @@
 	}
 
 	.gpt-tab.active {
-	  background: #4a3751;
+	  background: var(--cor-painel-tab-active);
 	  font-weight: bold;
 	  border-bottom: 2px solid #6fa8dc;
 	}
