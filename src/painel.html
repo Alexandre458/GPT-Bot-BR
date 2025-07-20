@@ -30,27 +30,60 @@
 
 		<div class="content">
 			<div class="tab-content active" id="home">
-				<div style="margin-top: 8px;">
-					<p style="font-size: 16px; font-weight: bold;">
-						Importe e Exporte funcional, Assim que importar arquivo, recarregar página.
+				<div style="margin-top: 5px; background: #1a1a2a; border: 1px solid #333; padding: 0px; border-radius: 10px;">
+					<p style="font-size: 16px; font-weight: bold; color: #00ff99; margin-bottom: 12px;">
+						⚙️ Importe ou Exporte suas Configurações
 					</p>
-					<button id="export-localstorage" class="home-btn-config">📤 Exportar Configurações</button>
-					<input type="file" id="import-localstorage-file" accept=".json" style="display:none" />
-					<button id="import-localstorage" class="home-btn-config">📥 Importar Configurações</button><br>
-					<p style="color: #ccc; font-size: 0.9em;">
-  					Fale comigo no Discord <a href="https://discord.com/users/123456789012345678" target="_blank" style="color: #7289da;">Alexandre458#7418</a>
+
+					<div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px;">
+						<button id="export-localstorage" class="home-btn-config" style="
+							flex: 1;
+							padding: 5px;
+							background: #222;
+							color: white;
+							border: 1px solid #555;
+							border-radius: 6px;
+							cursor: pointer;
+							font-weight: bold;
+						">📤 Exportar Configurações</button>
+
+						<input type="file" id="import-localstorage-file" accept=".json" style="display:none" />
+
+						<button id="import-localstorage" class="home-btn-config" style="
+							flex: 1;
+							padding: 5px;
+							background: #222;
+							color: white;
+							border: 1px solid #555;
+							border-radius: 6px;
+							cursor: pointer;
+							font-weight: bold;
+						">📥 Importar Configurações</button>
+					</div>
+
+					<p style="color: #aaa; font-size: 13px; margin-bottom: 8px;">
+						Após importar um arquivo, <b>recarregue a página</b> para aplicar as configurações corretamente.
 					</p>
+
+					<p style="color: #ccc; font-size: 13px;">
+						💬 Fale comigo no Discord:
+						<a href="https://discord.com/users/123456789012345678" target="_blank" style="color: #7289da; font-weight: bold;">
+							Alexandre458#7418
+						</a>
+					</p>
+
 					<div id="licenca-info" style="
 						color: #ccc;
 						font-size: 12px;
 						text-align: center;
-						margin-top: 6px;
+						margin-top: 5px;
+						font-weight: bold;
 						margin-bottom: 10px;
 					">
 						⏳ Carregando licença...
 					</div>
-
 				</div>
+
 
 				<div style="max-height: 300px; overflow-y: auto; padding-right: 5px;">
 					<hr />
