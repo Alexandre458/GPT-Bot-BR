@@ -1163,6 +1163,13 @@
 	  t.style.color = '#eee';
 	});
 
+	// Garante que somente a aba 'home' seja visível no carregamento
+	document.querySelectorAll('.tab-content').forEach(tc => tc.style.display = 'none');
+	document.querySelector('.tab-content#home').style.display = 'block';
+	document.querySelectorAll('.gpt-tab').forEach(t => t.classList.remove('active'));
+	document.querySelector('.gpt-tab[data-tab="home"]').classList.add('active');
+
+
 </script>
 
 <style>
