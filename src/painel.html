@@ -16,17 +16,16 @@
 			<div class="gpt-tab" data-tab="farm">Farm e Aldeias</div>
 			<div class="gpt-tab" data-tab="construcao">Construção</div>
 			<div class="gpt-tab" data-tab="FaroisBirremes">Farois/Birremes</div>
-			<div class="gpt-tab" data-tab="birremes">Retirado</div>
 			<div class="gpt-tab" data-tab="defesa">Defesa Terra</div>
 			<div class="gpt-tab" data-tab="pesquisas">Pesquisas</div>
 			<div class="gpt-tab" data-tab="cultura">Cultura</div>
 			<div class="gpt-tab" data-tab="notificacao">Notificação</div>
 			<div class="gpt-tab" data-tab="apoio">Enviar Apoio</div>
-			<div class="gpt-tab" data-tab="gold">Retirado</div>
 			<div class="gpt-tab" data-tab="voador">Auto Farm Voador</div>
 			<div class="gpt-tab" data-tab="spammp">Spam MP / Block Spam</div>
 			<div class="gpt-tab" data-tab="nc">Sistema de NC's</div>
 			<div class="gpt-tab" data-tab="extra">Utilidades</div>
+			<div class="gpt-tab" data-tab="mara">Maravilhas</div>
 		</div>
 
 		<div class="content">
@@ -245,11 +244,6 @@
         </div>
 			</div>
 
-			<div class="tab-content" id="birremes">
-				<p>Movido de aba</p>
-				
-			</div>
-
 			<div class="tab-content" id="defesa">
 				<div style="max-height: 300px; overflow-y: auto; padding-right: 5px;">
 					<label>
@@ -325,6 +319,10 @@
 
 			<div class="tab-content" id="notificacao">
 				<div class="scross-tela">
+					<div id="status-waha" style="margin-bottom: 10px; font-weight: bold;">
+						Status do servidor WhatsApp: 
+						<span id="status-waha-indicador" style="color: #ff4d4d;">🔴 Offline</span>
+					</div>
 					<label>
 						Whatsapp (cód. país + DDD + número):<br />
 						<button id="whatsapp-test" style="margin: 5px 0; width: 45%;">Testar requisição WhatsApp</button>
@@ -340,35 +338,64 @@
 					</label>
 					<br />
 					<label>
-						<input type="checkbox" id="notify-attack" checked /> Notificar ataques? >> <input style="margin-left: 59px;" type="checkbox" id="notify-attack-whatsapp" checked /> Whatsapp
+						<input type="checkbox" id="notify-attack" checked /> Notificar ataques? >> 
+						<input style="margin-left: 59px;" type="checkbox" id="notify-attack-whatsapp" checked /> Whatsapp
 						<input type="checkbox" id="notify-attack-discord" checked /> Discord
+						<!-- <input type="checkbox" id="notify-attack-grupo" checked /> Grupo -->
 					</label>
 					<br />
 
 					<label>
-						<input type="checkbox" id="notify-slot" checked /> Notificar slot disponível? >> <input style="margin-left: 21px;" type="checkbox" id="notify-slot-whatsapp" checked /> Whatsapp
+						<input type="checkbox" id="notify-slot" checked /> Notificar slot disponível? >> 
+						<input style="margin-left: 21px;" type="checkbox" id="notify-slot-whatsapp" checked /> Whatsapp
 						<input type="checkbox" id="notify-slot-discord" checked /> Discord
+						<!--<input type="checkbox" id="notify-slot-grupo" checked /> Grupo -->
 					</label>
 					<br />
 
 					<label>
-						<input type="checkbox" id="notify-captcha" checked /> Notificar Captchan? >> <input style="margin-left: 50px;" type="checkbox" id="notify-captcha-whatsapp" checked /> Whatsapp
+						<input type="checkbox" id="notify-captcha" checked /> Notificar Captchan? >> 
+						<input style="margin-left: 50px;" type="checkbox" id="notify-captcha-whatsapp" checked /> Whatsapp
 						<input type="checkbox" id="notify-captcha-discord" checked /> Discord
+						<!--<input type="checkbox" id="notify-captcha-grupo" checked /> Grupo -->
 					</label>
 					<br />
 
 					<label>
-						<input type="checkbox" id="notify-market" checked /> Notificar Gold no mercado? >> <input type="checkbox" id="notify-market-whatsapp" checked /> Whatsapp <input type="checkbox" id="notify-market-discord" checked /> Discord
+						<input type="checkbox" id="notify-market" checked /> Notificar Gold no mercado? >> 
+						<input type="checkbox" id="notify-market-whatsapp" checked /> Whatsapp 
+						<input type="checkbox" id="notify-market-discord" checked /> Discord
+						<!--<input type="checkbox" id="notify-market-grupo" checked /> Grupo -->
 					</label><br>
-				</div>
-				<hr>
-				<div style="margin: 10px; color: white;">
-					<span>Ignorar notificação ataque para os jogadores:</span><br>
-					<input id="ignore-input" placeholder="Nome do jogador" style="width: 200px;" />
-					<button style="width: 100px; margin-bottom: 5px;" onclick="adicionarIgnorado()">Adicionar</button><br>
-					<ul id="ignore-list" style="display: flex; flex-wrap: wrap; max-width: 300px; padding: 0; gap: 4px;"></ul>
+				
+					<!--<hr>
+					<div class="card">
+						<h3>📢 Grupo para Notificação</h3>
+
+						<p>Crie um grupo e adicione esse contato ao grupo "número BR +55" (81) 8820-9254.<br>
+							📹 <a href="https://youtu.be/XNeue9Dp1zA" target="_blank" style="color: #00ff99;">Vídeo de como usar</a></p>
+
+						<label>ID do grupo para enviar notificações (WhatsApp):</label>
+						<input id="grupo-id-notificacao" placeholder="Ex: 1203..." />
+
+						<hr style="margin: 20px 0; border: 0; border-top: 1px solid #333;" />
+
+						<label>🔎 Buscar ID do grupo pelo nome:</label>
+						<input id="nome-grupo" placeholder="Ex: Primos" />
+						<button onclick="buscarIdDoGrupo()">Buscar ID</button>
+
+						<pre id="resultado-grupo" style="margin-top: 15px;"></pre>
+					</div>-->
+					<hr>
+					<div style="margin: 10px; color: white;">
+						<span>Ignorar notificação ataque para os jogadores:</span><br>
+						<input id="ignore-input" placeholder="Nome do jogador" style="width: 200px;" />
+						<button style="width: 100px; margin-bottom: 5px;" onclick="adicionarIgnorado()">Adicionar</button><br>
+						<ul id="ignore-list" style="display: flex; flex-wrap: wrap; max-width: 300px; padding: 0; gap: 4px;"></ul>
+					</div>
 				</div>
 			</div>
+
 
 
 			<div class="tab-content" id="apoio">
@@ -471,10 +498,6 @@
 					<button id="enviar-apoio">Enviar Apoio</button>
 				</div>
 				<div id="mensagem-apoio" style="color: lightgreen; margin-top: 10px; display: none;">Configurações salvas com sucesso!</div>
-			</div>
-
-			<div class="tab-content" id="gold">
-				<p>ACESSE ABA DE NOTIFICAÇÃO</p>
 			</div>
 
 			<div class="tab-content" id="voador">
@@ -1091,6 +1114,35 @@
 					<div id="praga_status" style="margin: 10px;"></div>
 				</div>
 			</div>
+
+			<div class="tab-content" id="mara">
+				<div style="
+					background: #1a1a1a;
+					padding: 30px;
+					border-radius: 10px;
+					box-shadow: 0 0 10px rgba(255, 80, 80, 0.2);
+					color: #eee;
+					max-width: 600px;
+					margin: 40px auto;
+					text-align: center;
+					font-family: Arial, sans-serif;
+				">
+					<h2 style="color:#ff4d4d;">🚫 Acesso Negado</h2>
+					<p style="margin-top: 15px; font-size: 16px;">
+						Você não tem permissão para utilizar essa funcionalidade.
+					</p>
+					<p style="margin-top: 10px; font-size: 14px; color: #ccc;">
+						Entre em contato com o suporte para solicitar acesso.
+					</p>
+					<p style="color: #ccc; font-size: 0.9em; margin-top: 20px;">
+						Fale comigo no Discord  
+						<a href="https://discord.com/users/123456789012345678" target="_blank" style="color: #7289da; font-weight: bold;">
+							Alexandre458#7418
+						</a>
+					</p>
+				</div>
+			</div>
+
 		</div>
 	</div>
 </div>
