@@ -1859,14 +1859,17 @@
 } }
   };
 
+  // Inicializa o i18next com os dados acima
   i18next.init({
     lng: localStorage.getItem('lang') || 'pt',
     fallbackLng: 'pt',
     resources: translations
   }, function(err, t) {
+    if (err) return console.error("Erro ao carregar i18next:", err);
     updateTranslations();
   });
 
+  // Função que aplica as traduções usando [data-i18n]
   function updateTranslations() {
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
@@ -1878,7 +1881,8 @@
     });
   }
 
-  window.changeLanguage = function (lang) {
+  // Função global para trocar idioma via dropdown
+  window.changeLanguage = function(lang) {
     i18next.changeLanguage(lang, () => {
       localStorage.setItem('lang', lang);
       updateTranslations();
