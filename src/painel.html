@@ -1,19 +1,17 @@
-<!-- Bibliotecas i18next -->
-<script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
-<script src="https://unpkg.com/i18next-http-backend@latest/i18nextHttpBackend.min.js"></script>
-
-<!-- Script de inicialização e tradução -->
 <script>
   i18next
     .use(i18nextHttpBackend)
     .init({
+      lng: localStorage.getItem('lang') || 'pt',  // linguagem padrão
       fallbackLng: 'pt',
-      lng: localStorage.getItem('lang') || 'pt',
+      debug: false,
       backend: {
+        // 🔥 importante: use raw.githubusercontent.com no formato direto
         loadPath: 'https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/src/locales/{{lng}}.json'
       }
-    }, function () {
-      updateTranslations();
+    }, function(err, t) {
+      if (err) return console.error('Erro i18next:', err);
+      updateTranslations(); // função que aplica as traduções
     });
 
   function updateTranslations() {
@@ -27,14 +25,15 @@
     });
   }
 
-  // função global
-  function changeLanguage(lang) {
+  // 📤 Tornar a função global para o onchange funcionar
+  window.changeLanguage = function(lang) {
     i18next.changeLanguage(lang, () => {
       localStorage.setItem('lang', lang);
       updateTranslations();
     });
-  }
+  };
 </script>
+
 
 
 
@@ -72,10 +71,11 @@
 			<div class="tab-content active" id="home">
 				<div style="margin-top: 5px; background: #1a1a2a; border: 1px solid #333; padding: 0px; border-radius: 10px;">
 					<select onchange="changeLanguage(this.value)">
-						<option value="pt">🇧🇷 Português</option>
-						<option value="en">🇺🇸 English</option>
-						<option value="es">🇪🇸 Español</option>
-					</select>
+					<option value="pt">🇧🇷 Português</option>
+					<option value="en">🇺🇸 English</option>
+					<option value="es">🇪🇸 Español</option>
+				</select>
+
 
 					<p style="font-size: 16px; font-weight: bold; color: #00ff99; margin-bottom: 12px;" data-i18n="config_title">
 						⚙️ Importe ou Exporte suas Configurações
