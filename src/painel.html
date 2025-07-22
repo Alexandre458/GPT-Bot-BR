@@ -1239,44 +1239,28 @@
 
 </script>
 
-<!-- Carrega as bibliotecas i18next -->
-<!-- Carregar bibliotecas i18next -->
-<script src="https://unpkg.com/i18next@23.6.16/dist/umd/i18next.min.js" onload="carregarI18nextBackend()"></script>
+<!-- Carrega o i18next -->
+<script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
 
-<!-- Backend será carregado somente após o i18next -->
 <script>
-  function carregarI18nextBackend() {
-    const backendScript = document.createElement('script');
-    backendScript.src = "https://unpkg.com/i18next-http-backend@2.2.0/i18nextHttpBackend.min.js";
-    backendScript.onload = iniciarI18n;
-    document.head.appendChild(backendScript);
-  }
+  async function carregarTodosIdiomas() {
+    const idiomas = ['pt', 'en', 'es'];
+    const baseURL = 'https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/src/locales';
 
-  function iniciarI18n() {
-    if (typeof i18next === 'undefined' || typeof i18nextHttpBackend === 'undefined') {
-      console.error('❌ i18next ou o backend não foram carregados corretamente.');
-      return;
+    const recursos = {};
+
+    for (const lang of idiomas) {
+      try {
+        const resposta = await fetch(`${baseURL}/${lang}.js`);
+        const codigo = await resposta.text();
+        new Function(codigo)(); // agora temos window.ptTranslations, etc.
+        recursos[lang] = window[`${lang}Translations`];
+      } catch (e) {
+        console.warn(`❌ Erro ao carregar idioma ${lang}:`, e);
+      }
     }
 
-    i18next
-      .use(i18nextHttpBackend)
-      .init({
-        lng: localStorage.getItem('lang') || 'pt',
-        fallbackLng: 'pt',
-        backend: {
-          loadPath: 'https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/src/locales/{{lng}}.json'
-        }
-      }, function(err, t) {
-        if (err) return console.error("Erro ao iniciar i18next:", err);
-        updateTranslations();
-      });
-
-    window.changeLanguage = function(lang) {
-      i18next.changeLanguage(lang, () => {
-        localStorage.setItem('lang', lang);
-        updateTranslations();
-      });
-    };
+    return recursos;
   }
 
   function updateTranslations() {
@@ -1289,7 +1273,33 @@
       }
     });
   }
+
+  async function iniciarI18n() {
+    const recursos = await carregarTodosIdiomas();
+    const lang = localStorage.getItem('lang') || 'pt';
+
+    i18next.init({
+      lng: lang,
+      fallbackLng: 'pt',
+      resources: recursos
+    }, function(err, t) {
+      if (err) return console.error('Erro ao iniciar i18next:', err);
+      updateTranslations();
+    });
+  }
+
+  // Para trocar idioma manualmente:
+  window.changeLanguage = function(lang) {
+    i18next.changeLanguage(lang, () => {
+      localStorage.setItem('lang', lang);
+      updateTranslations();
+    });
+  };
+
+  // Inicia
+  window.addEventListener('load', iniciarI18n);
 </script>
+
 
 
 
