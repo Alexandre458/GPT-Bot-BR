@@ -14,6 +14,12 @@
   "tab_extra": "Utilidades",
   "tab_mara": "Maravilhas",
 
+  "license_loading": "Carregando licença...",
+  "license_lifetime": "Licença VITALÍCIA ativa",
+  "license_expires": "Sua licença expira em:",
+  "license_days_left": "dias restantes",
+  "license_expiring_warning": "Licença prestes a expirar!",
+  "license_renew_link": "Renove agora - clique aqui e aprenda como",
   "config_title": "⚙️ Importe ou Exporte suas Configurações",
   "btn_export_config": "📤 Exportar Configurações",
   "btn_import_config": "📥 Importar Configurações",

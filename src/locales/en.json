@@ -14,6 +14,12 @@
     "tab_extra": "Utilities",
     "tab_mara": "Wonders",
 
+    "license_loading": "Loading license...",
+    "license_lifetime": "LIFETIME License active",
+    "license_expires": "Your license expires on:",
+    "license_days_left": "days remaining",
+    "license_expiring_warning": "License about to expire!",
+    "license_renew_link": "Renew now - click here to learn how",
     "config_title": "⚙️ Import or Export your Settings",
     "btn_export_config": "📤 Export Settings",
     "btn_import_config": "📥 Import Settings",
