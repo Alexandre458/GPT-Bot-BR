@@ -1242,7 +1242,7 @@
       lng: localStorage.getItem('lang') || 'pt',
       fallbackLng: 'pt',
       backend: {
-        loadPath: './locales/{{lng}}.json'
+        loadPath: 'https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/src/locales/{{lng}}.json'
       }
     }, function (err, t) {
       updateTranslations();
