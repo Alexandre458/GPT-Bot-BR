@@ -1240,10 +1240,45 @@
 </script>
 
 <!-- Carrega as bibliotecas i18next -->
-<script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
-<script src="https://unpkg.com/i18next-http-backend@latest/i18nextHttpBackend.min.js"></script>
+<!-- Carregar bibliotecas i18next -->
+<script src="https://unpkg.com/i18next@23.6.16/dist/umd/i18next.min.js" onload="carregarI18nextBackend()"></script>
 
+<!-- Backend será carregado somente após o i18next -->
 <script>
+  function carregarI18nextBackend() {
+    const backendScript = document.createElement('script');
+    backendScript.src = "https://unpkg.com/i18next-http-backend@2.2.0/i18nextHttpBackend.min.js";
+    backendScript.onload = iniciarI18n;
+    document.head.appendChild(backendScript);
+  }
+
+  function iniciarI18n() {
+    if (typeof i18next === 'undefined' || typeof i18nextHttpBackend === 'undefined') {
+      console.error('❌ i18next ou o backend não foram carregados corretamente.');
+      return;
+    }
+
+    i18next
+      .use(i18nextHttpBackend)
+      .init({
+        lng: localStorage.getItem('lang') || 'pt',
+        fallbackLng: 'pt',
+        backend: {
+          loadPath: 'https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/src/locales/{{lng}}.json'
+        }
+      }, function(err, t) {
+        if (err) return console.error("Erro ao iniciar i18next:", err);
+        updateTranslations();
+      });
+
+    window.changeLanguage = function(lang) {
+      i18next.changeLanguage(lang, () => {
+        localStorage.setItem('lang', lang);
+        updateTranslations();
+      });
+    };
+  }
+
   function updateTranslations() {
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
@@ -1254,31 +1289,8 @@
       }
     });
   }
-
-  function carregarI18n() {
-    i18next
-      .use(i18nextHttpBackend)
-      .init({
-        lng: localStorage.getItem('lang') || 'pt',
-        fallbackLng: 'pt',
-        backend: {
-          loadPath: 'https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/src/locales/{{lng}}.json'
-        }
-      }, function (err) {
-        if (err) return console.error("Erro ao carregar traduções:", err);
-        updateTranslations();
-      });
-  }
-
-  window.changeLanguage = function (lang) {
-    i18next.changeLanguage(lang, () => {
-      localStorage.setItem('lang', lang);
-      updateTranslations();
-    });
-  };
-
-  window.addEventListener('load', carregarI18n);
 </script>
+
 
 
 <style>
