@@ -1,4 +1,59 @@
+<!-- Carregar i18next -->
+<script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
 
+<script>
+  async function baixarTraducoes() {
+    const idiomas = ['pt', 'en', 'es'];
+    const recursos = {};
+
+    for (const lang of idiomas) {
+      try {
+        const response = await fetch(`https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/src/locales/${lang}.json`);
+        const json = await response.json();
+        recursos[lang] = { translation: json };
+      } catch (err) {
+        console.warn(`Erro ao carregar idioma ${lang}:`, err);
+      }
+    }
+
+    return recursos;
+  }
+
+  function updateTranslations() {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (el.hasAttribute('data-i18n-html')) {
+        el.innerHTML = i18next.t(key);
+      } else {
+        el.textContent = i18next.t(key);
+      }
+    });
+  }
+
+  async function iniciarI18n() {
+    const recursos = await baixarTraducoes();
+    const lang = localStorage.getItem('lang') || 'pt';
+
+    i18next.init({
+      lng: lang,
+      fallbackLng: 'pt',
+      resources: recursos
+    }, function(err, t) {
+      if (err) return console.error('Erro ao iniciar i18next:', err);
+      updateTranslations();
+    });
+  }
+
+  // Trocar idioma
+  window.changeLanguage = function(lang) {
+    i18next.changeLanguage(lang, () => {
+      localStorage.setItem('lang', lang);
+      updateTranslations();
+    });
+  };
+
+  window.addEventListener('load', iniciarI18n);
+</script>
 <div id="script-panel">
 	<div id="drag-header">
 		<span id="panel-title">
@@ -1238,67 +1293,6 @@
 
 
 </script>
-
-<!-- Carregar i18next -->
-<script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
-
-<script>
-  async function baixarTraducoes() {
-    const idiomas = ['pt', 'en', 'es'];
-    const recursos = {};
-
-    for (const lang of idiomas) {
-      try {
-        const response = await fetch(`https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/src/locales/${lang}.json`);
-        const json = await response.json();
-        recursos[lang] = { translation: json };
-      } catch (err) {
-        console.warn(`Erro ao carregar idioma ${lang}:`, err);
-      }
-    }
-
-    return recursos;
-  }
-
-  function updateTranslations() {
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (el.hasAttribute('data-i18n-html')) {
-        el.innerHTML = i18next.t(key);
-      } else {
-        el.textContent = i18next.t(key);
-      }
-    });
-  }
-
-  async function iniciarI18n() {
-    const recursos = await baixarTraducoes();
-    const lang = localStorage.getItem('lang') || 'pt';
-
-    i18next.init({
-      lng: lang,
-      fallbackLng: 'pt',
-      resources: recursos
-    }, function(err, t) {
-      if (err) return console.error('Erro ao iniciar i18next:', err);
-      updateTranslations();
-    });
-  }
-
-  // Trocar idioma
-  window.changeLanguage = function(lang) {
-    i18next.changeLanguage(lang, () => {
-      localStorage.setItem('lang', lang);
-      updateTranslations();
-    });
-  };
-
-  window.addEventListener('load', iniciarI18n);
-</script>
-
-
-
-
 
 <style>
 	/* Variáveis */
