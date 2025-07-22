@@ -1,8 +1,21 @@
-  <!-- Seus scripts de tradução -->
-  <script src="https://unpkg.com/i18next-http-backend@latest/i18nextHttpBackend.min.js"></script>
-  <script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js" onload="carregarI18n()"></script>
+<!-- Bibliotecas i18next -->
+<script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
+<script src="https://unpkg.com/i18next-http-backend@latest/i18nextHttpBackend.min.js"></script>
 
+<!-- Script de inicialização e tradução -->
 <script>
+  i18next
+    .use(i18nextHttpBackend)
+    .init({
+      fallbackLng: 'pt',
+      lng: localStorage.getItem('lang') || 'pt',
+      backend: {
+        loadPath: 'https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/src/locales/{{lng}}.json'
+      }
+    }, function () {
+      updateTranslations();
+    });
+
   function updateTranslations() {
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
@@ -14,29 +27,15 @@
     });
   }
 
-  // Precisa ser no escopo global!
-  window.changeLanguage = function (lang) {
+  // função global
+  function changeLanguage(lang) {
     i18next.changeLanguage(lang, () => {
       localStorage.setItem('lang', lang);
       updateTranslations();
     });
-  };
-
-  window.addEventListener("DOMContentLoaded", () => {
-    i18next
-      .use(i18nextHttpBackend)
-      .init({
-        lng: localStorage.getItem('lang') || 'pt',
-        fallbackLng: 'pt',
-        backend: {
-          loadPath: 'https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/src/locales/{{lng}}.json'
-        }
-      }, function (err, t) {
-        if (err) return console.error("Erro ao carregar i18next:", err);
-        updateTranslations();
-      });
-  });
+  }
 </script>
+
 
 
 <div id="script-panel">
