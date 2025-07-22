@@ -1,41 +1,21 @@
-<!-- Carregar apenas i18next -->
-<script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
-
 <script>
-  function updateTranslations() {
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (el.hasAttribute('data-i18n-html')) {
-        el.innerHTML = i18next.t(key);
-      } else {
-        el.textContent = i18next.t(key);
+  window.addEventListener('load', () => {
+    const check = setInterval(() => {
+      if (typeof i18next !== 'undefined' && typeof window.updateTranslations === 'function') {
+        clearInterval(check);
+        window.updateTranslations();
       }
-    });
-  }
-
-  async function iniciarI18n() {
-    const lang = localStorage.getItem('lang') || 'pt';
-    const recursos = uw.I18N_DATA || {};
-
-    i18next.init({
-      lng: lang,
-      fallbackLng: 'pt',
-      resources: recursos
-    }, function(err, t) {
-      if (err) return console.error('Erro ao iniciar i18next:', err);
-      updateTranslations();
-    });
-  }
+    }, 100);
+  });
 
   window.changeLanguage = function(lang) {
     i18next.changeLanguage(lang, () => {
       localStorage.setItem('lang', lang);
-      updateTranslations();
+      window.updateTranslations();
     });
   };
-
-  window.addEventListener('load', iniciarI18n);
 </script>
+
 
 <div id="script-panel">
 	<div id="drag-header">
@@ -93,7 +73,7 @@
 						</button>
 					</div>
 
-					<p style="color: #aaa; font-size: 13px; margin-bottom: 8px;" data-i18n="config_reminder">
+					<p style="color: #aaa; font-size: 13px; margin-bottom: 8px;" data-i18n="config_reminder" data-i18n-html>
 						Após importar um arquivo, <b>recarregue a página</b> para aplicar as configurações corretamente.
 					</p>
 
@@ -104,7 +84,7 @@
 						</a>
 					</p>
 
-					<div id="licenca-info" style="color: #ccc; font-size: 12px; text-align: center; margin-top: 5px; font-weight: bold; margin-bottom: 10px;" data-i18n="loading_license">
+					<div id="licenca-info" style="color: #ccc; font-size: 12px; text-align: center; margin-top: 5px; font-weight: bold; margin-bottom: 10px;">
 						⏳ Carregando licença...
 					</div>
 				</div>
@@ -140,7 +120,7 @@
 						<hr />
 					</div>
 
-					<h2 style="color:#00ff99;" data-i18n="about_title">📌 Sobre o GPT Bot BR</h2>
+					<h2 style="color:#00ff99;" data-i18n="about_title" data-i18n-html>📌 Sobre o GPT Bot BR</h2>
 					<p style="margin-top: 10px; font-size: 15px; line-height: 1.5;" data-i18n="about_text">
 						O <strong>Grepolis GPT Bot BR</strong> é um sistema de automação completo criado para otimizar sua experiência no Grepolis.
 						Automatize construções, recrute tropas, envie recursos, use magias e mantenha sua conta ativa com segurança e performance.
@@ -468,7 +448,7 @@
 					<div class="card">
 						<h3 data-i18n="grupo_notificacao_titulo">📢 Grupo para Notificação</h3>
 
-						<p data-i18n-html="grupo_notificacao_desc">
+						<p data-i18n="grupo_notificacao_desc" data-i18n-html>
 							Crie um grupo e adicione esse contato ao grupo "número BR +55" (81) 8820-9254.<br />
 							📹 <a href="https://youtu.be/XNeue9Dp1zA" target="_blank" style="color: #00ff99;">Vídeo de como usar</a>
 						</p>
@@ -624,7 +604,7 @@
 					<input id="nc_fabricacao_interval" type="number" style="width:20%;" placeholder="Ex: 60" />
 				</label>
 				<br />
-				<button id="nc_fabricacao_salvar" style="margin-top: 5px;" data-i18n="btn_salvar_dados">Salvar dados</button>
+				<button id="nc_fabricacao_salvar" style="margin-top: 5px;" data-i18n="btn_salvar_dados_nc2">Salvar dados</button>
 				<button id="nc_fabricacao_ativar" style="margin-top: 5px; background: darkred; color: white;" data-i18n="btn_ativar_fabricacao">Ativar Fabricação de NC</button>
 				<div id="nc_fabricacao_status" style="margin-top: 5px;"></div>
 			</div>
@@ -672,7 +652,7 @@
 							<option value="90">90%</option>
 							<option value="100" selected>100%</option>
 						</select>
-					</label>
+					</label><br>
 
 					<label>
 						<span data-i18n="extra_gruta_percentual_prata">
@@ -704,13 +684,13 @@
 
 					<label style="padding: 0px; margin: 0px;">
 						<span data-i18n="extra_camp_label">Auto atacar missão ilha:</span>
-						<button id="camp_toggle_script" style="background: darkred; color: white; width: 130px; margin-left: 91px;" data-i18n="btn_ativar_auto_camp">Ativar Auto Camp</button>
+						<button id="camp_toggle_script" style="background: darkred; color: white; width: 150px; margin-left: 91px;" data-i18n="btn_ativar_auto_camp">Ativar Auto Camp</button>
 					</label>
 					<div id="camp_status" style="margin: 10px;"></div>
 
 					<label style="padding: 0px; margin: 0px;">
 						<span data-i18n="extra_deus_label">Auto colocar Deus (cidade sem deuses):</span>
-						<button id="deus_toggle_script" style="background: darkred; color: white; width: 130px;" data-i18n="btn_ativar_auto_deuses">Ativar Auto Deuses</button>
+						<button id="deus_toggle_script" style="background: darkred; color: white; width: 150px;" data-i18n="btn_ativar_auto_deuses">Ativar Auto Deuses</button>
 					</label>
 					<div id="deus_status" style="margin: 10px;"></div>
 
@@ -881,7 +861,7 @@
 							<option value="58">58</option>
 							<option value="59">59</option>
 						</select>
-						<button id="narci_toggle_script" style="background: darkred; color: white; width: 91px" data-i18n="btn_ativar_narci">Ativar Narci</button>
+						<button id="narci_toggle_script" style="background: darkred; color: white; width: 120px" data-i18n="btn_ativar_narci">Ativar Narci</button>
 					</label>
 					<div id="narci_status" style="margin: 10px;"></div>
 
@@ -1046,7 +1026,7 @@
 							<option value="58">58</option>
 							<option value="59">59</option>
 						</select>
-						<button id="puri_toggle_script" style="background: darkred; color: white; width: 91px" data-i18n="btn_ativar_purif">Ativar Purif</button>
+						<button id="puri_toggle_script" style="background: darkred; color: white; width: 120px" data-i18n="btn_ativar_purif">Ativar Purif</button>
 					</label>
 					<div id="puri_status" style="margin: 10px;"></div>
 
@@ -1211,7 +1191,7 @@
 							<option value="58">58</option>
 							<option value="59">59</option>
 						</select>
-						<button id="praga_toggle_script" style="background: darkred; color: white; width: 91px" data-i18n="btn_ativar_praga">Ativar Praga</button>
+						<button id="praga_toggle_script" style="background: darkred; color: white; width: 120px" data-i18n="btn_ativar_praga">Ativar Praga</button>
 					</label>
 					<div id="praga_status" style="margin: 10px;"></div>
 				</div>
