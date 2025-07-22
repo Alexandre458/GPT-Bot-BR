@@ -1237,24 +1237,16 @@
 
 </script>
 
-<!-- Carrega as bibliotecas -->
 <script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
 <script src="https://unpkg.com/i18next-http-backend@latest/i18nextHttpBackend.min.js"></script>
-
-<!-- Agora sim, carrega o i18next com segurança -->
 <script>
-  function updateTranslations() {
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (el.hasAttribute('data-i18n-html')) {
-        el.innerHTML = i18next.t(key);
-      } else {
-        el.textContent = i18next.t(key);
-      }
-    });
-  }
+  // Só inicia quando ambas estiverem disponíveis
+  window.addEventListener("load", () => {
+    if (typeof i18next === 'undefined' || typeof i18nextHttpBackend === 'undefined') {
+      console.error("❌ i18next ou Backend não foram carregados corretamente.");
+      return;
+    }
 
-  function carregarI18n() {
     i18next
       .use(i18nextHttpBackend)
       .init({
@@ -1264,20 +1256,30 @@
           loadPath: 'https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/src/locales/{{lng}}.json'
         }
       }, function (err, t) {
+        if (err) return console.error("Erro ao carregar i18next:", err);
         updateTranslations();
       });
-  }
 
-  window.changeLanguage = function (lang) {
-    i18next.changeLanguage(lang, () => {
-      localStorage.setItem('lang', lang);
-      updateTranslations();
-    });
-  };
+    function updateTranslations() {
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (el.hasAttribute('data-i18n-html')) {
+          el.innerHTML = i18next.t(key);
+        } else {
+          el.textContent = i18next.t(key);
+        }
+      });
+    }
 
-  // Executa somente após carregar i18next e i18next-http-backend
-  window.addEventListener('load', carregarI18n);
+    window.changeLanguage = function (lang) {
+      i18next.changeLanguage(lang, () => {
+        localStorage.setItem('lang', lang);
+        updateTranslations();
+      });
+    };
+  });
 </script>
+
 
 
 
