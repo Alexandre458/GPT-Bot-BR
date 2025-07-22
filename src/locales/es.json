@@ -170,6 +170,7 @@
   "btn_ativar_envio": "Activar Envío de NC",
   "nc_fabricacao_titulo": "⚒️ Fabricación Automática de NC",
   "nc_loop_fabricacao_label": "Tiempo en minutos del bucle de fabricación:",
+  "btn_salvar_dados_nc2": "Guardar Datos",
   "btn_ativar_fabricacao": "Activar Fabricación de NC",
 
   "extra_refresh_titulo": "Auto Refresh",
