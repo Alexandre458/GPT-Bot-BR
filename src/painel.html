@@ -1,51 +1,3 @@
-<!-- Carrega as bibliotecas -->
-<script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
-<script src="https://unpkg.com/i18next-http-backend@latest/i18nextHttpBackend.min.js"></script>
-
-<!-- Agora sim, carrega o i18next com segurança -->
-<script>
-  function updateTranslations() {
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-      const key = el.getAttribute('data-i18n');
-      if (el.hasAttribute('data-i18n-html')) {
-        el.innerHTML = i18next.t(key);
-      } else {
-        el.textContent = i18next.t(key);
-      }
-    });
-  }
-
-  function carregarI18n() {
-    i18next
-      .use(i18nextHttpBackend)
-      .init({
-        lng: localStorage.getItem('lang') || 'pt',
-        fallbackLng: 'pt',
-        backend: {
-          loadPath: 'https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/src/locales/{{lng}}.json'
-        }
-      }, function (err, t) {
-        updateTranslations();
-      });
-  }
-
-  window.changeLanguage = function (lang) {
-    i18next.changeLanguage(lang, () => {
-      localStorage.setItem('lang', lang);
-      updateTranslations();
-    });
-  };
-
-  // Executa somente após carregar i18next e i18next-http-backend
-  window.addEventListener('load', carregarI18n);
-</script>
-
-
-
-
-
-
-
 
 <div id="script-panel">
 	<div id="drag-header">
@@ -1285,6 +1237,47 @@
 	document.querySelector('.gpt-tab[data-tab="home"]').classList.add('active');
 
 
+</script>
+<!-- Carrega as bibliotecas -->
+<script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
+<script src="https://unpkg.com/i18next-http-backend@latest/i18nextHttpBackend.min.js"></script>
+
+<!-- Agora sim, carrega o i18next com segurança -->
+<script>
+  function updateTranslations() {
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (el.hasAttribute('data-i18n-html')) {
+        el.innerHTML = i18next.t(key);
+      } else {
+        el.textContent = i18next.t(key);
+      }
+    });
+  }
+
+  function carregarI18n() {
+    i18next
+      .use(i18nextHttpBackend)
+      .init({
+        lng: localStorage.getItem('lang') || 'pt',
+        fallbackLng: 'pt',
+        backend: {
+          loadPath: 'https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/src/locales/{{lng}}.json'
+        }
+      }, function (err, t) {
+        updateTranslations();
+      });
+  }
+
+  window.changeLanguage = function (lang) {
+    i18next.changeLanguage(lang, () => {
+      localStorage.setItem('lang', lang);
+      updateTranslations();
+    });
+  };
+
+  // Executa somente após carregar i18next e i18next-http-backend
+  window.addEventListener('load', carregarI18n);
 </script>
 
 <style>
