@@ -2,7 +2,6 @@
 <script src="https://unpkg.com/i18next-http-backend@latest/i18nextHttpBackend.min.js"></script>
 
 <script>
-  const uw = typeof unsafeWindow !== "undefined" ? unsafeWindow : window;
 
   i18next
     .use(i18nextHttpBackend)
@@ -17,7 +16,7 @@
       updateTranslations();
     });
 
-  uw.changeLanguage = function(lang) {
+  window.changeLanguage = function(lang) {
     i18next.changeLanguage(lang, () => {
       localStorage.setItem('lang', lang);
       updateTranslations();
@@ -75,7 +74,7 @@
 		<div class="content">
 			<div class="tab-content active" id="home">
 				<div style="margin-top: 5px; background: #1a1a2a; border: 1px solid #333; padding: 0px; border-radius: 10px;">
-					<select onchange="uw.changeLanguage(this.value)">
+					<select onchange="changeLanguage(this.value)">
 					<option value="pt">🇧🇷 Português</option>
 					<option value="en">🇺🇸 English</option>
 					<option value="es">🇪🇸 Español</option>
