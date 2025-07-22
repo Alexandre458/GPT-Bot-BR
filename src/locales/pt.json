@@ -127,8 +127,8 @@
   "apoio_naval_titulo": "Quais tropas navais podem ser enviadas:",
   "apoio_barcos_usar": "Quais barcos usar:",
   "apoio_tropas_enviar": "Quais tropas podem ser enviadas:",
-  "btn_salvar_dados": "Salvar Dados",
-  "btn_enviar_apoio": "Enviar Apoio",
+  "btn_salvar_dados_envio": "Salvar Dados",
+  "btn_enviar_apoio_envio": "Enviar Apoio",
   "apoio_msg_salvo": "Configurações salvas com sucesso!",
   "unit_sword": "Espadachim",
   "unit_slinger": "Fundibulário",
@@ -151,6 +151,57 @@
   "unit_boar": "Javali de Cálidon",
   "unit_satyr": "Sátiro",
   "unit_spartoi": "Esparto",
-  "unit_ladon": "Ladão"
+  "unit_ladon": "Ladão",
+  
+  "voador_descricao": "Será adicionado funcionalidade para auto fazer voadores com sistema de farms de favores.",
+
+  "spammp_descricao": "Será adicionado funcionalidade para auto spam MP e defender dele.",
+
+  "nc_descricao": "Aba muito usada para mults de NC, para fabricação e envio de NC.",
+  "nc_envio_titulo": "🔁 Envio Automático de NC",
+  "nc_destino_id_label": "ID da Cidade de Destino:",
+  "nc_loop_envio_label": "Tempo em minutos do loop de envio:",
+  "btn_salvar_dados_nc": "Salvar dados",
+  "btn_ativar_envio": "Ativar Envio de NC",
+  "nc_fabricacao_titulo": "⚒️ Fabricação Automática de NC",
+  "nc_loop_fabricacao_label": "Tempo em minutos do loop de fabricação:",
+  "btn_ativar_fabricacao": "Ativar Fabricação de NC",
+
+  "extra_refresh_titulo": "Auto Refresh",
+  "extra_refresh_tempo": "Tempo para reload de página:",
+  "extra_refresh_horas": "Hora(s)",
+  "extra_refresh_minutos": "Minuto(s)",
+  "extra_refresh_segundos": "Segundo(s)",
+  "btn_salvar": "Salvar",
+  "btn_ativar_reload": "Ativar Reload",
+
+  "extra_gruta_titulo": "Auto Gruta",
+  "extra_gruta_percentual_armazem": "Guardar gruta quando o armazém estiver no mínimo em:",
+  "extra_gruta_percentual_prata": "Quanto de prata deve ser guardada no armazém:",
+  "btn_ativar_gruta": "Ativar Auto Gruta",
+
+  "extra_camp_label": "Auto atacar missão ilha:",
+  "btn_ativar_auto_camp": "Ativar Auto Camp",
+  "extra_deus_label": "Auto colocar Deus (cidade sem deuses):",
+  "btn_ativar_auto_deuses": "Ativar Auto Deuses",
+
+  "extra_magia_explicacao": "Para o uso das 3 opções abaixo, recomendo colocar 5s antes quando for usado em cerco.<br />O bot irá spammar durante 10s a partir do horário escolhido, exemplo: 10:10:10 ele irá tentar spammar o feitiço entre 10:10:10 ~~ 10:10:20. Então se o cerco for 10:10:10, coloque 10:10:05, dessa forma ele inicia 10:10:05 até 10:10:15. Assim você tem 5 segundos de segurança para caso tenha algum atraso de relógio do seu computador.",
+  "extra_label_narci": "ID da cidade para Narci (Ideal para cerco inimigo):",
+  "extra_label_horario_narci": "Auto+Narci+Prot Horário:",
+  "btn_ativar_narci": "Ativar Narci",
+  "extra_label_puri": "ID da cidade para Puri (Ideal para cerco Aliado):",
+  "extra_label_horario_puri": "Auto+Puri+Prot Horário:",
+  "btn_ativar_purif": "Ativar Purif",
+  "extra_label_praga": "ID da cidade para Praga (Ideal para cerco Aliado):",
+  "extra_label_horario_praga": "Auto+Praga+Prot Horário:",
+  "btn_ativar_praga": "Ativar Praga",
+
+  "mara_titulo": "🚫 Acesso Negado",
+  "mara_texto1": "Você não tem permissão para utilizar essa funcionalidade.",
+  "mara_texto2": "Entre em contato com o suporte para solicitar acesso.",
+  "mara_discord": "Fale comigo no Discord <a href='https://discord.com/users/123456789012345678' target='_blank' style='color: #7289da; font-weight: bold;'>Alexandre458#7418</a>"
+
+
+
 
 }

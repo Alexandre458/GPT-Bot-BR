@@ -539,8 +539,8 @@
 				</div>
 
 				<div class="linha">
-					<button id="salvar-apoio" data-i18n="btn_salvar_dados">Salvar Dados</button>
-					<button id="enviar-apoio" data-i18n="btn_enviar_apoio">Enviar Apoio</button>
+					<button id="salvar-apoio" data-i18n="btn_salvar_dados_envio">Salvar Dados</button>
+					<button id="enviar-apoio" data-i18n="btn_enviar_apoio_envio">Enviar Apoio</button>
 				</div>
 
 				<div id="mensagem-apoio" data-i18n="apoio_msg_salvo" style="color: lightgreen; margin-top: 10px; display: none;">
@@ -550,68 +550,75 @@
 
 
 			<div class="tab-content" id="voador">
-				<p>Será adicionado funcionalidade para auto fazer voadores com sistema de farms de favores.</p>
-			</div>
-			<div class="tab-content" id="spammp">
-				<p>Será adicionado funcionalidade para auto fazer voadores com sistema de farms de favores.</p>
+				<p data-i18n="voador_descricao">Será adicionado funcionalidade para auto fazer voadores com sistema de farms de favores.</p>
 			</div>
 
+			<div class="tab-content" id="spammp">
+				<p data-i18n="spammp_descricao">Será adicionado funcionalidade para auto spam MP e defender dele.</p>
+			</div>
+
+
 			<div class="tab-content" id="nc">
-				<p>Aba muito usada para mults de NC, para fabricação e envio de NC.</p>
+				<p data-i18n="nc_descricao">Aba muito usada para mults de NC, para fabricação e envio de NC.</p>
 				<hr />
-				<h4 style="margin: 5px 0; color: white;">🔁 Envio Automático de NC</h4>
+
+				<h4 style="margin: 5px 0; color: white;" data-i18n="nc_envio_titulo">🔁 Envio Automático de NC</h4>
 				<label>
-					ID da Cidade de Destino:
+					<span data-i18n="nc_destino_id_label">ID da Cidade de Destino:</span>
 					<input id="nc_destino_id" type="number" style="width:20%; margin-left: 97px;" placeholder="Ex: 12345" />
 				</label>
 				<br />
 				<label>
-					Tempo em minutos do loop de envio:
+					<span data-i18n="nc_loop_envio_label">Tempo em minutos do loop de envio:</span>
 					<input id="nc_envio_interval" type="number" style="width:20%; margin-left: 25px;" placeholder="Ex: 60" />
 				</label>
 				<br />
-				<button id="nc_envio_salvar" style="margin-top: 5px;">Salvar dados</button>
-				<button id="nc_envio_ativar" style="margin-top: 5px; background: darkred; color: white;">Ativar Envio de NC</button>
+				<button id="nc_envio_salvar" style="margin-top: 5px;" data-i18n="btn_salvar_dados_nc">Salvar dados</button>
+				<button id="nc_envio_ativar" style="margin-top: 5px; background: darkred; color: white;" data-i18n="btn_ativar_envio">Ativar Envio de NC</button>
 				<div id="nc_envio_status" style="margin-top: 5px;"></div>
 
 				<hr />
-				<h4 style="margin: 5px 0; color: white;">⚒️ Fabricação Automática de NC</h4>
+				<h4 style="margin: 5px 0; color: white;" data-i18n="nc_fabricacao_titulo">⚒️ Fabricação Automática de NC</h4>
 				<label>
-					Tempo em minutos do loop de fabricação:
+					<span data-i18n="nc_loop_fabricacao_label">Tempo em minutos do loop de fabricação:</span>
 					<input id="nc_fabricacao_interval" type="number" style="width:20%;" placeholder="Ex: 60" />
 				</label>
 				<br />
-				<button id="nc_fabricacao_salvar" style="margin-top: 5px;">Salvar dados</button>
-				<button id="nc_fabricacao_ativar" style="margin-top: 5px; background: darkred; color: white;">Ativar Fabricação de NC</button>
+				<button id="nc_fabricacao_salvar" style="margin-top: 5px;" data-i18n="btn_salvar_dados">Salvar dados</button>
+				<button id="nc_fabricacao_ativar" style="margin-top: 5px; background: darkred; color: white;" data-i18n="btn_ativar_fabricacao">Ativar Fabricação de NC</button>
 				<div id="nc_fabricacao_status" style="margin-top: 5px;"></div>
 			</div>
 
 			<div class="tab-content" id="extra">
 				<div style="max-height: 300px; overflow-y: auto; padding-right: 5px;">
-					<p>Auto Refresh</p>
+					<p data-i18n="extra_refresh_titulo">Auto Refresh</p>
+
 					<label>
-						Tempo para reload de página:
+						<span data-i18n="extra_refresh_tempo">Tempo para reload de página:</span>
 						<input id="refresh_timer" type="number" value="30" placeholder="30" style="width: 15%;" />
 						<select id="refresh_option" style="width: 20%; margin-top: 5px; margin-left: 10px;">
-							<option value="3600">Hora(s)</option>
-							<option value="60" selected>Minuto(s)</option>
-							<option value="1">Segundo(s)</option>
+							<option value="3600" data-i18n="extra_refresh_horas">Hora(s)</option>
+							<option value="60" selected data-i18n="extra_refresh_minutos">Minuto(s)</option>
+							<option value="1" data-i18n="extra_refresh_segundos">Segundo(s)</option>
 						</select>
 					</label>
-					<br />
+					<br /><br />
 
-					<br />
-					<button id="refresh_save" style="background: darkred; color: white;">Salvar</button>
-					<button id="refresh_toggle_script" style="background: darkred; color: white;">Ativar Reload</button>
+					<button id="refresh_save" style="background: darkred; color: white;" data-i18n="btn_salvar">Salvar</button>
+					<button id="refresh_toggle_script" style="background: darkred; color: white;" data-i18n="btn_ativar_reload">Ativar Reload</button>
+
 					<div id="refresh_save_status" style="margin-top: 10px;"></div>
 					<div id="refresh_status" style="margin-top: 10px;"></div>
 
+
 					<hr />
 
-					<p>Auto Gruta</p>
+					<p data-i18n="extra_gruta_titulo">Auto Gruta</p>
 
 					<label>
-						Guardar gruta quando o armazém estiver no mínimo em:
+						<span data-i18n="extra_gruta_percentual_armazem">
+							Guardar gruta quando o armazém estiver no mínimo em:
+						</span>
 						<select id="gruta_porcentagem" style="width: 15%; margin-top: 5px; margin-left: 10px;">
 							<option value="0">0%</option>
 							<option value="10">10%</option>
@@ -628,7 +635,9 @@
 					</label>
 
 					<label>
-						Quanto de prata deve ser guardada no armazém:
+						<span data-i18n="extra_gruta_percentual_prata">
+							Quanto de prata deve ser guardada no armazém:
+						</span>
 						<select id="prata_porcentagem" style="width: 15%; margin-top: 5px; margin-left: 55px;">
 							<option value="10">10%</option>
 							<option value="20">20%</option>
@@ -643,41 +652,43 @@
 						</select>
 					</label>
 
-					<br />
-					<br />
-					<button id="gruta_save" style="background: darkred; color: white;">Salvar</button>
-					<button id="gruta_toggle_script" style="background: darkred; color: white;">Ativar Auto Gruta</button>
+					<br /><br />
+
+					<button id="gruta_save" style="background: darkred; color: white;" data-i18n="btn_salvar">Salvar</button>
+					<button id="gruta_toggle_script" style="background: darkred; color: white;" data-i18n="btn_ativar_gruta">Ativar Auto Gruta</button>
+
 					<div id="gruta_save_status" style="margin-top: 10px;"></div>
 					<div id="gruta_status" style="margin-top: 10px;"></div>
 
 					<hr />
 
 					<label style="padding: 0px; margin: 0px;">
-						Auto atacar missão ilha:
-						<button id="camp_toggle_script" style="background: darkred; color: white; width: 130px; margin-left: 91px;">Ativar Auto Camp</button>
+						<span data-i18n="extra_camp_label">Auto atacar missão ilha:</span>
+						<button id="camp_toggle_script" style="background: darkred; color: white; width: 130px; margin-left: 91px;" data-i18n="btn_ativar_auto_camp">Ativar Auto Camp</button>
 					</label>
 					<div id="camp_status" style="margin: 10px;"></div>
 
 					<label style="padding: 0px; margin: 0px;">
-						Auto colocar Deus (cidade sem deuses):
-						<button id="deus_toggle_script" style="background: darkred; color: white; width: 130px">Ativar Auto Deuses</button>
+						<span data-i18n="extra_deus_label">Auto colocar Deus (cidade sem deuses):</span>
+						<button id="deus_toggle_script" style="background: darkred; color: white; width: 130px;" data-i18n="btn_ativar_auto_deuses">Ativar Auto Deuses</button>
 					</label>
 					<div id="deus_status" style="margin: 10px;"></div>
 
+
 					<hr />
-					<p style="text-align: left;">
+					<p style="text-align: left;" data-i18n="extra_magia_explicacao" data-i18n-html>
 						Para o uso das 3 opções abaixo, recomendo colocar 5s antes quando for usado em cerco.<br />
-						O bot irá spammar durante 10s a partir do horário escolhido, exemplo: 10:10:10 ele irá tentar spammar o feitiço entre 10:10:10 ~~ 10:10:20. Então se o cerco for 10:10:10, coloque 10:10:05, dessa forma ele inicia 10:10:05 até
-						10:10:15. Assim você tem 5 segundos de segurança para caso tenha algum atraso de relógio do seu computador.
+						O bot irá spammar durante 10s a partir do horário escolhido, exemplo: 10:10:10 ele irá tentar spammar o feitiço entre 10:10:10 ~~ 10:10:20. Então se o cerco for 10:10:10, coloque 10:10:05, dessa forma ele inicia 10:10:05 até 10:10:15. Assim você tem 5 segundos de segurança para caso tenha algum atraso de relógio do seu computador.
 					</p>
 					<hr />
 
 					<label style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
-						ID da cidade para Narci (Ideal para cerco inimigo):
+						<span data-i18n="extra_label_narci">ID da cidade para Narci (Ideal para cerco inimigo):</span>
 						<input id="narci_city" type="number" value="" placeholder="Ex: 12345" style="width: 82px; margin-left:14px" />
 					</label>
+
 					<label style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
-						Auto+Narci+Prot Horário:
+						<span data-i18n="extra_label_horario_narci">Auto+Narci+Prot Horário:</span>
 						<select id="narci-hora" style="width: 38px; margin-left: 3px;">
 							<option value="0">00</option>
 							<option value="1">01</option>
@@ -830,18 +841,19 @@
 							<option value="58">58</option>
 							<option value="59">59</option>
 						</select>
-						<button id="narci_toggle_script" style="background: darkred; color: white; width: 91px">Ativar Narci</button>
+						<button id="narci_toggle_script" style="background: darkred; color: white; width: 91px" data-i18n="btn_ativar_narci">Ativar Narci</button>
 					</label>
 					<div id="narci_status" style="margin: 10px;"></div>
 
 					<hr />
 
 					<label style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
-						ID da cidade para Puri (Ideal para cerco Aliado):
+						<span data-i18n="extra_label_puri">ID da cidade para Puri (Ideal para cerco Aliado):</span>
 						<input id="puri_city" type="number" value="" placeholder="Ex: 12345" style="width: 82px; margin-left:28px" />
 					</label>
+
 					<label style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
-						Auto+Puri+Prot Horário:
+						<span data-i18n="extra_label_horario_puri">Auto+Puri+Prot Horário:</span>
 						<select id="puri-hora" style="width: 38px; margin-left: 9px;">
 							<option value="0">00</option>
 							<option value="1">01</option>
@@ -994,18 +1006,19 @@
 							<option value="58">58</option>
 							<option value="59">59</option>
 						</select>
-						<button id="puri_toggle_script" style="background: darkred; color: white; width: 91px">Ativar Purif</button>
+						<button id="puri_toggle_script" style="background: darkred; color: white; width: 91px" data-i18n="btn_ativar_purif">Ativar Purif</button>
 					</label>
 					<div id="puri_status" style="margin: 10px;"></div>
 
 					<hr />
 
 					<label style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
-						ID da cidade para Praga (Ideal para cerco Aliado):
+						<span data-i18n="extra_label_praga">ID da cidade para Praga (Ideal para cerco Aliado):</span>
 						<input id="praga_city" type="number" value="" placeholder="Ex: 12345" style="width: 82px; margin-left:18px" />
 					</label>
+
 					<label style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
-						Auto+Praga+Prot Horário:
+						<span data-i18n="extra_label_horario_praga">Auto+Praga+Prot Horário:</span>
 						<select id="praga-hora" style="width: 38px;">
 							<option value="0">00</option>
 							<option value="1">01</option>
@@ -1158,7 +1171,7 @@
 							<option value="58">58</option>
 							<option value="59">59</option>
 						</select>
-						<button id="praga_toggle_script" style="background: darkred; color: white; width: 91px">Ativar Praga</button>
+						<button id="praga_toggle_script" style="background: darkred; color: white; width: 91px" data-i18n="btn_ativar_praga">Ativar Praga</button>
 					</label>
 					<div id="praga_status" style="margin: 10px;"></div>
 				</div>
@@ -1176,14 +1189,17 @@
 					text-align: center;
 					font-family: Arial, sans-serif;
 				">
-					<h2 style="color:#ff4d4d;">🚫 Acesso Negado</h2>
-					<p style="margin-top: 15px; font-size: 16px;">
+					<h2 style="color:#ff4d4d;" data-i18n="mara_titulo">🚫 Acesso Negado</h2>
+
+					<p style="margin-top: 15px; font-size: 16px;" data-i18n="mara_texto1">
 						Você não tem permissão para utilizar essa funcionalidade.
 					</p>
-					<p style="margin-top: 10px; font-size: 14px; color: #ccc;">
+
+					<p style="margin-top: 10px; font-size: 14px; color: #ccc;" data-i18n="mara_texto2">
 						Entre em contato com o suporte para solicitar acesso.
 					</p>
-					<p style="color: #ccc; font-size: 0.9em; margin-top: 20px;">
+
+					<p style="color: #ccc; font-size: 0.9em; margin-top: 20px;" data-i18n-html="mara_discord">
 						Fale comigo no Discord  
 						<a href="https://discord.com/users/123456789012345678" target="_blank" style="color: #7289da; font-weight: bold;">
 							Alexandre458#7418
