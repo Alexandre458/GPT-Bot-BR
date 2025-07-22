@@ -1,5 +1,4 @@
- window.enTranslations = {  
-  translation:{
+  {
     "tab_home": "Home",
     "tab_farm": "Farm and Villages",
     "tab_construcao": "Construction",
@@ -202,4 +201,3 @@
     "mara_discord": "Talk to me on Discord <a href='https://discord.com/users/123456789012345678' target='_blank' style='color: #7289da; font-weight: bold;'>Alexandre458#7418</a>"
 
   }
- }

@@ -1239,24 +1239,21 @@
 
 </script>
 
-<!-- Carrega o i18next -->
+<!-- Carregar i18next -->
 <script src="https://unpkg.com/i18next@latest/dist/umd/i18next.min.js"></script>
 
 <script>
-  async function carregarTodosIdiomas() {
+  async function baixarTraducoes() {
     const idiomas = ['pt', 'en', 'es'];
-    const baseURL = 'https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/src/locales';
-
     const recursos = {};
 
     for (const lang of idiomas) {
       try {
-        const resposta = await fetch(`${baseURL}/${lang}.js`);
-        const codigo = await resposta.text();
-        new Function(codigo)(); // agora temos window.ptTranslations, etc.
-        recursos[lang] = window[`${lang}Translations`];
-      } catch (e) {
-        console.warn(`❌ Erro ao carregar idioma ${lang}:`, e);
+        const response = await fetch(`https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/src/locales/${lang}.json`);
+        const json = await response.json();
+        recursos[lang] = { translation: json };
+      } catch (err) {
+        console.warn(`Erro ao carregar idioma ${lang}:`, err);
       }
     }
 
@@ -1275,7 +1272,7 @@
   }
 
   async function iniciarI18n() {
-    const recursos = await carregarTodosIdiomas();
+    const recursos = await baixarTraducoes();
     const lang = localStorage.getItem('lang') || 'pt';
 
     i18next.init({
@@ -1288,7 +1285,7 @@
     });
   }
 
-  // Para trocar idioma manualmente:
+  // Trocar idioma
   window.changeLanguage = function(lang) {
     i18next.changeLanguage(lang, () => {
       localStorage.setItem('lang', lang);
@@ -1296,9 +1293,9 @@
     });
   };
 
-  // Inicia
   window.addEventListener('load', iniciarI18n);
 </script>
+
 
 
 
