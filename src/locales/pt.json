@@ -73,7 +73,7 @@
   "group_comuns": "Comuns",
   "group_especiais_esquerda": "Especiais Esquerda",
   "group_especiais_direita": "Especiais Direita",
-  "construcao_interval_config": "Configurações de Intervalo",
+  "construcao_interval_config": "⚙️ Configurações de Intervalo (Simular ações lenta ou rápidas)",
   "construcao_run_interval_label": "Tempo entre execuções:",
   "construcao_build_interval_label": "Tempo entre construções:",
   "construcao_unit_seconds": "segundos",
