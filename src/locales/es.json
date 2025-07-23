@@ -67,6 +67,8 @@
   "btn_construcao_desativar": "Desactivar Construcción",
   "status_construcao_ativo": "Activo",
   "status_construcao_inativo": "Inactivo",
+  "btn_salvar_tempo": "💾 Guardar Configuración de Tiempo",
+  "feedback_tempo_salvo": "✅ ¡Configuración guardada!",
   "group_comuns": "Comunes",
   "group_especiais_esquerda": "Especiales Izquierda",
   "group_especiais_direita": "Especiales Derecha",
