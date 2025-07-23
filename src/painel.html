@@ -121,7 +121,7 @@
 					</div>
 
 					<h2 style="color:#00ff99;" data-i18n="about_title" data-i18n-html>📌 Sobre o GPT Bot BR</h2>
-					<p style="margin-top: 10px; font-size: 15px; line-height: 1.5;" data-i18n="about_text" data-i18n-html>
+					<p style="margin-top: 10px; font-size: 15px; line-height: 1.5;" data-i18n="about_text">
 						O <strong>Grepolis GPT Bot BR</strong> é um sistema de automação completo criado para otimizar sua experiência no Grepolis.
 						Automatize construções, recrute tropas, envie recursos, use magias e mantenha sua conta ativa com segurança e performance.
 						Desenvolvido por jogadores experientes, ele permite configurar ações por grupos de cidades e personalizar cada automação.
@@ -187,24 +187,86 @@
 
 			<div class="tab-content" id="construcao">
 				<div class="scross-tela">
-					<label style="margin-top: 10px; display:block">
+
+					<h4 data-i18n="construcao_interval_config" style="color: white;">⚙️ Configurações de Intervalo (Simular ações lenta ou rápidas)</h4>
+
+					<label data-i18n="construcao_run_interval_label">Tempo entre execuções (loop geral):</label><br/>
+					<label>
+						<span data-i18n="construcao_min_label">Min:</span>
+						<input type="number" id="min_run_interval" value="1" style="width: 60px;" />
+						<select id="min_run_unit">
+							<option value="1000" data-i18n="construcao_unit_seconds">seg</option>
+							<option value="60000" data-i18n="construcao_unit_minutes" selected>min</option>
+							<option value="3600000" data-i18n="construcao_unit_hours">h</option>
+						</select>
+					</label>
+
+					<label style="margin-left: 10px;">
+						<span data-i18n="construcao_max_label">Max:</span>
+						<input type="number" id="max_run_interval" value="3" style="width: 60px;" />
+						<select id="max_run_unit">
+							<option value="1000" data-i18n="construcao_unit_seconds">seg</option>
+							<option value="60000" data-i18n="construcao_unit_minutes" selected>min</option>
+							<option value="3600000" data-i18n="construcao_unit_hours">h</option>
+						</select>
+					</label><br>
+
+					<br/><label style="margin-top: 10px;" data-i18n="construcao_build_interval_label">Tempo entre uma construção a outra:</label><br/>
+					<label>
+						<span data-i18n="construcao_min_label">Min:</span>
+						<input type="number" id="min_build_interval" value="1" style="width: 80px;" />
+						<select id="min_build_unit">
+							<option value="1000" data-i18n="construcao_unit_seconds">seg</option>
+							<option value="60000" data-i18n="construcao_unit_minutes">min</option>
+							<option value="3600000" data-i18n="construcao_unit_hours">h</option>
+						</select>
+					</label>
+
+					<label style="margin-left: 10px;">
+						<span data-i18n="construcao_max_label">Max:</span>
+						<input type="number" id="max_build_interval" value="5" style="width: 80px;" />
+						<select id="max_build_unit">
+							<option value="1000" data-i18n="construcao_unit_seconds">seg</option>
+							<option value="60000" data-i18n="construcao_unit_minutes">min</option>
+							<option value="3600000" data-i18n="construcao_unit_hours">h</option>
+						</select>
+					</label>
+
+					<button id="save-timing-config" data-i18n="btn_salvar_tempo" style="margin-top: 10px;">
+						💾 Salvar Configuração de Tempo
+					</button>
+					<span id="timing-feedback" style="margin-left:10px; color:lightgreen;"></span>
+					<label style="margin-left: 10px;">
+						<input type="checkbox" id="auto-free-check">
+						<span data-i18n="construcao_auto_gratis">Auto Grátis?</span>
+					</label>
+
+					<hr style="margin-top: 20px; margin-bottom: 10px;">
+
+					<label style="display:block">
 						<select id="group-selector" style="width:50%; margin-bottom:10px;"></select>
 						<span data-i18n="construcao_group_saved">⬅ Grupos salvo</span>
 					</label>
+
 					<label>
-						<input type="text" id="group-name" placeholder="Ex: Defesa" style="width:43.5%; margin-bottom:10px;" />
+						<input type="text" id="group-name" data-i18n-placeholder="placeholder_group_name" placeholder="Ex: Defesa" style="width:43.5%; margin-bottom:10px;" />
 					</label>
 					<span data-i18n="construcao_group_name">⬅ Nome do grupo</span><br />
+
 					<div id="blocks-container"></div>
 				</div>
+
 				<div style="margin-top: 20px;">
 					<button id="add-block" data-i18n="btn_add_block">+ Bloco</button>
 					<button id="save-group" data-i18n="btn_save_group">Salvar Grupo</button>
 					<button id="delete-group" data-i18n="btn_delete_group">Excluir Grupo</button>
 					<button id="new-group" data-i18n="btn_new_group">Novo Grupo</button>
 					<div id="build-feedback" style="margin-top:10px; color:lightgreen;"></div>
+					<button id="toggle-construcao" data-i18n="btn_construcao_ativar">Ativar Construção</button>
+					<span id="status-construcao" data-i18n="status_construcao_inativo">Inativo</span>
 				</div>
 			</div>
+
 
 			<div class="tab-content" id="FaroisBirremes">
 				<p class="p-padrao-titulo" data-i18n="faroisbirremes_ambos_ativar">Agora podem ativar juntos!!</p>
