@@ -72,6 +72,8 @@
   "construcao_unit_seconds": "segundos",
   "construcao_unit_minutes": "minutos",
   "construcao_unit_hours": "horas",
+  "construcao_min_label": "Min:",
+  "construcao_max_label": "Max:",
   "building_main": "Senado",
   "building_barracks": "Cuartel",
   "building_farm": "Granja",

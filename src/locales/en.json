@@ -72,6 +72,8 @@
     "construcao_unit_seconds": "seconds",
     "construcao_unit_minutes": "minutes",
     "construcao_unit_hours": "hours",
+    "construcao_min_label": "Min:",
+    "construcao_max_label": "Max:",
     "building_main": "Senate",
     "building_barracks": "Barracks",
     "building_farm": "Farm",
