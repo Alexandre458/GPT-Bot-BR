@@ -31,20 +31,20 @@
 
 	<div id="script-body">
 		<div class="tabs">
-			<div class="gpt-tab" data-tab="home" data-i18n="tab_home">Home</div>
-			<div class="gpt-tab" data-tab="farm" data-i18n="tab_farm">Farm e Aldeias</div>
-			<div class="gpt-tab" data-tab="construcao" data-i18n="tab_construcao">Construção</div>
-			<div class="gpt-tab" data-tab="FaroisBirremes" data-i18n="tab_farois_birremes">Farois/Birremes</div>
-			<div class="gpt-tab" data-tab="defesa" data-i18n="tab_defesa">Defesa Terra</div>
-			<div class="gpt-tab" data-tab="pesquisas" data-i18n="tab_pesquisas">Pesquisas</div>
-			<div class="gpt-tab" data-tab="cultura" data-i18n="tab_cultura">Cultura</div>
-			<div class="gpt-tab" data-tab="notificacao" data-i18n="tab_notificacao">Notificação</div>
-			<div class="gpt-tab" data-tab="apoio" data-i18n="tab_apoio">Enviar Apoio</div>
-			<div class="gpt-tab" data-tab="voador" data-i18n="tab_voador">Auto Farm Voador</div>
-			<div class="gpt-tab" data-tab="spammp" data-i18n="tab_spammp">Spam MP / Block Spam</div>
-			<div class="gpt-tab" data-tab="nc" data-i18n="tab_nc">Sistema de NC's</div>
-			<div class="gpt-tab" data-tab="extra" data-i18n="tab_extra">Utilidades</div>
-			<div class="gpt-tab" data-tab="mara" data-i18n="tab_mara">Maravilhas</div>
+			<div class="gpt-tab no-drag" data-tab="home" data-i18n="tab_home">Home</div>
+			<div class="gpt-tab no-drag" data-tab="farm" data-i18n="tab_farm">Farm e Aldeias</div>
+			<div class="gpt-tab no-drag" data-tab="construcao" data-i18n="tab_construcao">Construção</div>
+			<div class="gpt-tab no-drag" data-tab="FaroisBirremes" data-i18n="tab_farois_birremes">Farois/Birremes</div>
+			<div class="gpt-tab no-drag" data-tab="defesa" data-i18n="tab_defesa">Defesa Terra</div>
+			<div class="gpt-tab no-drag" data-tab="pesquisas" data-i18n="tab_pesquisas">Pesquisas</div>
+			<div class="gpt-tab no-drag" data-tab="cultura" data-i18n="tab_cultura">Cultura</div>
+			<div class="gpt-tab no-drag" data-tab="notificacao" data-i18n="tab_notificacao">Notificação</div>
+			<div class="gpt-tab no-drag" data-tab="apoio" data-i18n="tab_apoio">Enviar Apoio</div>
+			<div class="gpt-tab no-drag" data-tab="voador" data-i18n="tab_voador">Auto Farm Voador</div>
+			<div class="gpt-tab no-drag" data-tab="spammp" data-i18n="tab_spammp">Spam MP / Block Spam</div>
+			<div class="gpt-tab no-drag" data-tab="nc" data-i18n="tab_nc">Sistema de NC's</div>
+			<div class="gpt-tab no-drag" data-tab="extra" data-i18n="tab_extra">Utilidades</div>
+			<div class="gpt-tab no-drag" data-tab="mara" data-i18n="tab_mara">Maravilhas</div>
 		</div>
 
 		<div class="content">
@@ -1342,72 +1342,44 @@
 
 	/* aba Painel */
 	#script-panel {
-		position: fixed;
-		left: 0px;
-		top: 0px;
-		background: var(--cor-painel-back);
-		border: 1px solid #444;
-		z-index: 9999;
-		width: 600px;
-		font-family: 'Segoe UI', sans-serif;
-		color: #fff;
-		border-radius: 12px;
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-		cursor: grab;
-
-		/* 👇 Adições importantes para toque */
-		touch-action: none;
-		user-select: none;
-		-webkit-user-select: none;
-		transition: left 0.05s ease, top 0.05s ease;
-
-
-	}
-
-	#script-panel .content,
-	#script-panel button,
-	#script-panel input,
-	#script-panel select
-	#script-panel textarea,
-	#script-panel label {
-		pointer-events: auto;
-		touch-action: manipulation;
+	  position: fixed;
+	  left: 0px;
+	  top: 0px;
+	  background: var(--cor-painel-back);
+	  border: 1px solid #444;
+	  z-index: 9999;
+	  width: 600px;
+	  font-family: 'Segoe UI', sans-serif;
+	  color: #fff;
+	  border-radius: 12px;
+	  box-shadow: 0 0 10px rgba(0,0,0,0.7);
 	}
 
 	#drag-header {
-		background: var(--cor-drag-header);
-		padding: 12px 15px;
-		font-size: 1.1em;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		border-top-left-radius: 12px;
-		border-top-right-radius: 12px;
-
-		/* ✅ Necessários para drag no mobile */
-		pointer-events: auto;
-		touch-action: none;
-		user-select: none;
-		cursor: grab;
+	  background: var(--cor-drag-header);
+	  padding: 12px 15px;
+	  font-size: 1.1em;
+	  display: flex;
+	  justify-content: space-between;
+	  align-items: center;
+	  border-top-left-radius: 12px;
+	  border-top-right-radius: 12px;
 	}
 
 	#drag-header img {
-		height: 20px;
-		vertical-align: middle;
-		margin-right: 5px;
+	  height: 20px;
+	  vertical-align: middle;
+	  margin-right: 5px;
 	}
 
 	#drag-header button {
-		pointer-events: auto; /* ✅ Permite clique mesmo durante o drag */
-		z-index: 10; /* Garante que fique por cima */
-		background: #444;
-		border: none;
-		color: white;
-		border-radius: 6px;
-		padding: 2px 6px;
-		cursor: pointer;
+	  background: #444;
+	  border: none;
+	  color: white;
+	  border-radius: 6px;
+	  padding: 2px 6px;
+	  cursor: pointer;
 	}
-
 
 	#logout-script {
 	  background: #e74c3c !important;
