@@ -1365,14 +1365,19 @@
 
 
 	#drag-header {
-	  background: var(--cor-drag-header);
-	  padding: 12px 15px;
-	  font-size: 1.1em;
-	  display: flex;
-	  justify-content: space-between;
-	  align-items: center;
-	  border-top-left-radius: 12px;
-	  border-top-right-radius: 12px;
+		background: var(--cor-drag-header);
+		padding: 12px 15px;
+		font-size: 1.1em;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-top-left-radius: 12px;
+		border-top-right-radius: 12px;
+
+		/* 👇 Adicione essas linhas */
+		cursor: grab;
+		touch-action: none;
+		user-select: none;
 	}
 
 	#drag-header img {
