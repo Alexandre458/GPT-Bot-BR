@@ -1342,26 +1342,26 @@
 
 	/* aba Painel */
 	#script-panel {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  background: var(--cor-painel-back);
-  border: 1px solid #444;
-  z-index: 9999;
-  width: 600px;
-  font-family: 'Segoe UI', sans-serif;
-  color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		background: var(--cor-painel-back);
+		border: 1px solid #444;
+		z-index: 9999;
+		width: 600px;
+		font-family: 'Segoe UI', sans-serif;
+		color: #fff;
+		border-radius: 12px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 
-  /* 👇 Adições importantes para toque */
-  touch-action: none;
-  user-select: none;
-  -webkit-user-select: none;
-	transition: left 0.05s ease, top 0.05s ease;
-  cursor: grab;
+		/* 👇 Adições importantes para toque */
+		touch-action: none;
+		user-select: none;
+		-webkit-user-select: none;
+		transition: left 0.05s ease, top 0.05s ease;
+		cursor: grab;
 
-}
+	}
 
 
 	#drag-header {
@@ -1374,26 +1374,30 @@
 		border-top-left-radius: 12px;
 		border-top-right-radius: 12px;
 
-		/* 👇 Adicione essas linhas */
-		cursor: grab;
+		/* ✅ Necessários para drag no mobile */
+		pointer-events: auto;
 		touch-action: none;
 		user-select: none;
+		cursor: grab;
 	}
 
 	#drag-header img {
-	  height: 20px;
-	  vertical-align: middle;
-	  margin-right: 5px;
+		height: 20px;
+		vertical-align: middle;
+		margin-right: 5px;
 	}
 
 	#drag-header button {
-	  background: #444;
-	  border: none;
-	  color: white;
-	  border-radius: 6px;
-	  padding: 2px 6px;
-	  cursor: pointer;
+		pointer-events: auto; /* ✅ Permite clique mesmo durante o drag */
+		z-index: 10; /* Garante que fique por cima */
+		background: #444;
+		border: none;
+		color: white;
+		border-radius: 6px;
+		padding: 2px 6px;
+		cursor: pointer;
 	}
+
 
 	#logout-script {
 	  background: #e74c3c !important;
