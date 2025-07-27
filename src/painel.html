@@ -1353,16 +1353,26 @@
 		color: #fff;
 		border-radius: 12px;
 		box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+		cursor: grab;
 
 		/* 👇 Adições importantes para toque */
 		touch-action: none;
 		user-select: none;
 		-webkit-user-select: none;
 		transition: left 0.05s ease, top 0.05s ease;
-		cursor: grab;
+
 
 	}
 
+	#script-panel .content,
+	#script-panel button,
+	#script-panel input,
+	#script-panel select
+	#script-panel textarea,
+	#script-panel label {
+		pointer-events: auto;
+		touch-action: manipulation;
+	}
 
 	#drag-header {
 		background: var(--cor-drag-header);
