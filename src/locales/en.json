@@ -102,7 +102,7 @@
     "building_statue": "Divine Statue",
     "building_oracle": "Oracle",
     "building_trade_office": "Merchant's Shop",
-    "construcao_simular_troca": "Simulate city switch?",
+    "simular_troca": "Simulate city switch?",
 
     "faroisbirremes_ambos_ativar": "Now both can be activated together!!",
     "farois_titulo": "Lighthouse System",

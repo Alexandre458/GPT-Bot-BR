@@ -102,7 +102,7 @@
   "building_statue": "Estatua Divina",
   "building_oracle": "Oráculo",
   "building_trade_office": "Tienda del Mercader",
-  "construcao_simular_troca": "¿Simular cambio de ciudad?",
+  "simular_troca": "¿Simular cambio de ciudad?",
 
   "faroisbirremes_ambos_ativar": "¡Ahora se pueden activar juntos!",
   "farois_titulo": "Sistema de Faros",
