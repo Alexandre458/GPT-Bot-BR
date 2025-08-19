@@ -132,7 +132,7 @@
     "argus_armazem": "Start from Warehouse level:",
     "argus_porto": "Start from Docks level:",
     "argus_tropa": "Naval unit:",
-    "argus_tropa_attack_ship": "Attack Ship (pop 10)",
+    "argus_tropa_attack_ship": "Light ship (pop 10)",
     "argus_tropa_bireme": "Bireme (pop 8)",
     "argus_tropa_trireme": "Trireme (pop 16)",
     "btn_desativar_script": "Disable Script",

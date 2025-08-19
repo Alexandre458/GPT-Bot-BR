@@ -132,7 +132,7 @@
   "argus_armazem": "Empezar desde Almacén nivel:",
   "argus_porto": "Empezar desde Astillero nivel:",
   "argus_tropa": "Unidad naval:",
-  "argus_tropa_attack_ship": "Barco de Ataque (pop 10)",
+  "argus_tropa_attack_ship": "Faros (pop 10)",
   "argus_tropa_bireme": "Bírreme (pop 8)",
   "argus_tropa_trireme": "Trirreme (pop 16)",
   "btn_desativar_script": "Desactivar Script",
