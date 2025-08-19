@@ -126,7 +126,7 @@
     "btn_salvar_config": "Save Settings",
     "btn_ativar_script": "Activate Script",
     "farois_info": "Define the target group for automatic lighthouse recruitment. Aristotle will be moved to the city with the most available population.<br />Script sends resources from all cities prioritizing the closest ones.<br /><strong>Ignored Group:</strong> Cities in this group will not be used for resource sending.<br /><br /><strong>NOTE:</strong> If there is ongoing trade, the script will wait for it to finish before sending resources.<br />",
-    "birremes_info": "Define the target group for automatic bireme recruitment. Daedalus will be moved to the city with the most available population.<br />Script sends resources from all cities prioritizing the closest ones.<br /><strong>Ignored Group:</strong> Cities in this group will not be used for resource sending.<br /><br /><strong>NOTE:</strong> If there is ongoing trade, the script will wait for it to finish before sending resources.<br />",
+    "birremes_info": "Define the target group for automatic bireme recruitment. Daedalus will be moved to the city with the most available population.<br />Script sends resources from all cities prioritizing the closest ones.<br /><strong>Ignored Group:</strong> Cities in this group will not be used for resource sending.<br />",
 
     "defesa_grupo": "Defense Cities Group:",
     "defesa_grupo_ignorado": "Ignored Group (For Resources):",

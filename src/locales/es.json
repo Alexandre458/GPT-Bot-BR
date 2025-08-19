@@ -126,7 +126,7 @@
   "btn_salvar_config": "Guardar Configuración",
   "btn_ativar_script": "Activar Script",
   "farois_info": "Define el grupo objetivo para el reclutamiento automático de faros. Aristóteles será movido a la ciudad con más población libre.<br />El script envía recursos desde todas las ciudades priorizando las más cercanas.<br /><strong>Grupo Ignorado:</strong> Las ciudades en este grupo no se usarán para enviar recursos.<br /><br /><strong>NOTA:</strong> Si hay comercio en curso, el script esperará a que finalice antes de enviar recursos.<br />",
-  "birremes_info": "Define el grupo objetivo para el reclutamiento automático de birremes. Dédalo será movido a la ciudad con más población libre.<br />El script envía recursos desde todas las ciudades priorizando las más cercanas.<br /><strong>Grupo Ignorado:</strong> Las ciudades en este grupo no se usarán para enviar recursos.<br /><br /><strong>NOTA:</strong> Si hay comercio en curso, el script esperará a que finalice antes de enviar recursos.<br />",
+  "birremes_info": "Define el grupo objetivo para el reclutamiento automático de birremes. Dédalo será movido a la ciudad con más población libre.<br />El script envía recursos desde todas las ciudades priorizando las más cercanas.<br /><strong>Grupo Ignorado:</strong> Las ciudades en este grupo no se usarán para enviar recursos.",
 
   "defesa_grupo": "Grupo de Ciudades de Defensa:",
   "defesa_grupo_ignorado": "Grupo Ignorado (Para Recursos):",
