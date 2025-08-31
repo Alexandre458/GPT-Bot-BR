@@ -236,6 +236,15 @@
   "btn_salvar_dados_nc2": "Salvar dados",
   "btn_ativar_fabricacao": "Ativar Fabricação de NC",
 
+  "nc_argus_titulo": "⚙️ Modo Argus para NC (opcional)",
+  "nc_argus_grupo_label": "Grupo de cidades alvo (nome exato):",
+  "nc_argus_hint": "Quando ativo, o Argus vai para a cidade com maior população livre, envia recursos em ondas proporcionais e o recrutamento padrão mantém no máximo 1 pedido naval por cidade.",
+  "nc_argus_switch_title": "Ativar Argus",
+  "nc_argus_grupo_ph": "Ex: Navios — NC",
+
+  "ph_destino_id": "Ex: 12345",
+  "ph_minutos": "Ex: 60",
+
   "extra_refresh_titulo": "Auto Refresh",
   "extra_refresh_tempo": "Tempo para reload de página:",
   "extra_refresh_horas": "Hora(s)",
