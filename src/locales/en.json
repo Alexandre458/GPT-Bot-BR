@@ -235,6 +235,15 @@
     "btn_salvar_dados_nc2": "Save Data",
     "btn_ativar_fabricacao": "Activate NC Production",
 
+    "nc_argus_titulo": "⚙️ Argus Mode for NC (optional)",
+    "nc_argus_grupo_label": "Target town group (exact name):",
+    "nc_argus_hint":"When enabled, Argus moves to towns with more free population, sends proportional resource waves, and the standard recruiter keeps at most 1 naval order per town.",
+    "nc_argus_switch_title": "Enable Argus",
+    "nc_argus_grupo_ph": "e.g., Ships — NC",
+
+    "ph_destino_id": "e.g., 12345",
+    "ph_minutos": "e.g., 60",
+
     "extra_refresh_titulo": "Auto Refresh",
     "extra_refresh_tempo": "Page reload interval:",
     "extra_refresh_horas": "Hour(s)",
