@@ -271,6 +271,9 @@
   "extra_label_praga": "ID de la ciudad para Maldición (ideal para asedio aliado):",
   "extra_label_horario_praga": "Horario Auto+Maldición+Prot:",
   "btn_ativar_praga": "Activar Maldición",
+  "extra_label_reagendar": "Reprogramar automáticamente",
+  "extra_hint_reagendar": "(usa la duración del hechizo)",
+  "extra_label_loops": "veces",
 
   "mara_titulo": "🚫 Acceso Denegado",
   "mara_texto1": "No tienes permiso para usar esta función.",

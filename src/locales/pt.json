@@ -273,6 +273,9 @@
   "extra_label_praga": "ID da cidade para Praga (Ideal para cerco Aliado):",
   "extra_label_horario_praga": "Auto+Praga+Prot Horário:",
   "btn_ativar_praga": "Ativar Praga",
+  "extra_label_reagendar": "Reagendar automaticamente",
+  "extra_hint_reagendar": "(usa a duração do feitiço)",
+  "extra_label_loops": "vezes",
 
   "mara_titulo": "🚫 Acesso Negado",
   "mara_texto1": "Você não tem permissão para utilizar essa funcionalidade.",

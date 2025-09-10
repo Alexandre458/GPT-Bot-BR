@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         GPT-Bot-BR
 // @namespace    https://grepolis.com
-// @version      1.4.1
+// @version      1.4.2
 // @description  Bot para automações do Grepolis.
 // @author       Alexandre458
 // @match        https://*.grepolis.com/game/*
@@ -199,8 +199,8 @@ window.addEventListener('load', () => {
       const grid = box.querySelector('#renov-grid');
       grid.appendChild(mkBtn(`Mercado Pago – Mensal R$${mensalBRL}`, () => abrirPagamento('/pagamento/criar-pagamento', { tipo: 'mensal' })));
       grid.appendChild(mkBtn(`Mercado Pago – Anual R$${anualBRL}`,  () => abrirPagamento('/pagamento/criar-pagamento', { tipo: 'anual' })));
-      grid.appendChild(mkBtn('PayPal – Mensal (USD)', () => abrirPagamento('/api/criar-pagamento-paypal', { tipo: 'mensal' })));
-      grid.appendChild(mkBtn('PayPal – Anual (USD)',  () => abrirPagamento('/api/criar-pagamento-paypal', { tipo: 'anual' })));
+      grid.appendChild(mkBtn('PayPal – Mensal (USD)', () => abrirPagamento('/pagamento/criar-pagamento-paypal', { tipo: 'mensal' })));
+      grid.appendChild(mkBtn('PayPal – Anual (USD)',  () => abrirPagamento('/pagamento/criar-pagamento-paypal', { tipo: 'anual' })));
 
       wrap.appendChild(box);
       document.body.appendChild(wrap);
@@ -443,7 +443,7 @@ window.addEventListener('load', () => {
 
     // ---------- Atualização ----------
     async function checarAtualizacao() {
-      const VERSAO_ATUAL = "1.4.1";
+      const VERSAO_ATUAL = "1.4.2";
       try {
         const urlRaw = "https://raw.githubusercontent.com/Alexandre458/GPT-Bot-BR/main/Update/Painel-GPT-Bot-BR.js?t=" + Date.now();
         const raw = await fetch(urlRaw);

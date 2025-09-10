@@ -272,6 +272,9 @@
     "extra_label_praga": "City ID for Curse (ideal for allied siege):",
     "extra_label_horario_praga": "Auto+Curse+Prot Time:",
     "btn_ativar_praga": "Enable Curse",
+    "extra_label_reagendar": "Auto reschedule",
+    "extra_hint_reagendar": "(uses the spell duration)",
+    "extra_label_loops": "times",
 
     "mara_titulo": "🚫 Access Denied",
     "mara_texto1": "You do not have permission to use this feature.",
