@@ -261,7 +261,7 @@
   "extra_deus_label": "Auto asignar Dios (ciudades sin dioses):",
   "btn_ativar_auto_deuses": "Activar Auto Dioses",
 
-  "extra_magia_explicacao": "Para usar las 3 opciones siguientes, se recomienda colocar 5s antes si se usa en asedio.<br />El bot spameará durante 10s a partir del horario seleccionado, por ejemplo: 10:10:10 lo hará entre 10:10:10 y 10:10:20. Si el asedio es a las 10:10:10, configura 10:10:05, así tendrá un margen de seguridad de 5 segundos en caso de desfase de tu reloj.",
+  "extra_magia_explicacao": "Los horarios de abajo usan el reloj del SERVIDOR (hora del mundo). El bot comienza automáticamente 5 s antes de la hora elegida e intenta lanzar el hechizo dentro de una ventana corta de 30 s.<br />Si marcas \"Reprogramar automáticamente\", se encadenarán nuevas ventanas usando la duración real del hechizo (detectada automáticamente según el mundo y la velocidad) y se repetirán tantas veces como indiques en \"veces\".<br />Consejo: introduce la hora exacta del asedio/acción; el adelanto de 5 s ya lo aplica el script.",
   "extra_label_narci": "ID de la ciudad para Narci (ideal para asedio enemigo):",
   "extra_label_horario_narci": "Horario Auto+Narci+Prot:",
   "btn_ativar_narci": "Activar Narci",

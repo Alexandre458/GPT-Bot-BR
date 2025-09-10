@@ -263,7 +263,8 @@
   "extra_deus_label": "Auto colocar Deus (cidade sem deuses):",
   "btn_ativar_auto_deuses": "Ativar Auto Deuses",
 
-  "extra_magia_explicacao": "Para o uso das 3 opções abaixo, recomendo colocar 5s antes quando for usado em cerco.<br />O bot irá spammar durante 10s a partir do horário escolhido, exemplo: 10:10:10 ele irá tentar spammar o feitiço entre 10:10:10 ~~ 10:10:20. Então se o cerco for 10:10:10, coloque 10:10:05, dessa forma ele inicia 10:10:05 até 10:10:15. Assim você tem 5 segundos de segurança para caso tenha algum atraso de relógio do seu computador.",
+
+  "extra_magia_explicacao": "Os horários abaixo usam o relógio do SERVIDOR (hora do mundo). O bot inicia automaticamente 5 s antes do horário escolhido e tenta lançar o feitiço dentro de uma janela curta de 30 s.<br />Se marcar \"Reagendar automaticamente\", novas janelas serão encadeadas usando a duração real do feitiço (detectada automaticamente de acordo com o mundo e a velocidade) e repetidas conforme o campo \"vezes\".<br />Dica: informe exatamente o horário do cerco/ação; o adiantamento de 5 s já é aplicado pelo script.",
   "extra_label_narci": "ID da cidade para Narci (Ideal para cerco inimigo):",
   "extra_label_horario_narci": "Auto+Narci+Prot Horário:",
   "btn_ativar_narci": "Ativar Narci",

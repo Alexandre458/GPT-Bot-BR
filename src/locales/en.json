@@ -262,7 +262,7 @@
     "extra_deus_label": "Auto assign God (city without gods):",
     "btn_ativar_auto_deuses": "Enable Auto Gods",
 
-    "extra_magia_explicacao": "For the 3 options below, set the time 5s earlier if used during sieges.<br />The bot will spam the spell for 10s starting from the chosen time, e.g. 10:10:10 will spam from 10:10:10 to 10:10:20. If the siege is at 10:10:10, set 10:10:05, so it runs from 10:10:05 to 10:10:15. This gives 5s safety for possible PC time delays.",
+    "extra_magia_explicacao": "The times below use the SERVER clock (world time). The bot automatically starts 5 s before the chosen time and tries to cast within a short 30 s window.<br />If you check \"Reschedule automatically\", new windows will be chained using the spell’s actual duration (auto-detected per world and speed) and repeated as many times as set in the \"times\" field.<br />Tip: enter the exact siege/action time; the 5 s early start is already applied by the script.",
     "extra_label_narci": "City ID for Narc (ideal for enemy siege):",
     "extra_label_horario_narci": "Auto+Narc+Prot Time:",
     "btn_ativar_narci": "Enable Narc",
